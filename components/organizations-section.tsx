@@ -1,35 +1,26 @@
-import { Users, Calendar, MapPin } from "lucide-react"
+import { Users, Calendar, MapPin } from "lucide-react";
 
 export function OrganizationsSection() {
   const organizations = [
     {
-      name: "TIPSE - Technology & Innovation in Public Service & Engineering",
+      name: "TIPSE - Techincal Interview Preparation for Software Engineers",
       role: "Active Member",
-      period: "2023 - Present",
-      location: "San Francisco, CA",
+      period: "2025 - Present",
+      location: "Los Angeles, CA",
       description:
-        "Professional organization focused on advancing technology solutions in public service and engineering sectors. Contributing to policy discussions and technical standards.",
+        "Professional organization focused on preparing students to become professionals in the technology space and being a place where they can go to ask for help, learn new skills, and practice technical skills.",
       color: "from-blue-500 to-purple-600",
     },
     {
-      name: "Local Developer Meetup",
-      role: "Organizer",
+      name: "ACM - Association for Computing Machinery",
+      role: "Active Member",
       period: "2022 - Present",
       location: "Bay Area",
       description:
-        "Monthly meetup for local developers to share knowledge, network, and discuss latest tech trends. Organizing workshops and guest speaker sessions.",
+        "Provide computer science knowledge and resources to students. Host programming workshops that teach projects and new technologies outside of classes at Cal State LA. Share knowledge and advice of the computing field in our mentorship program. Provide professional development workshops to help members prepare for the workforce. Build a community through our events, promoting involvement outside of campus. Serve students and those interested in the betterment of our Los Angeles community.",
       color: "from-green-500 to-teal-600",
     },
-    {
-      name: "Open Source Contributors Network",
-      role: "Contributor",
-      period: "2021 - Present",
-      location: "Global",
-      description:
-        "Community of developers contributing to open source projects and promoting collaborative development. Maintaining several popular repositories.",
-      color: "from-purple-500 to-pink-600",
-    },
-  ]
+  ];
 
   return (
     <section className="py-32 px-4 relative bg-muted/30">
@@ -42,7 +33,9 @@ export function OrganizationsSection() {
           <h2 className="text-5xl font-bold mt-4 mb-6">
             Organizations & <span className="gradient-text">Involvement</span>
           </h2>
-          <p className="text-xl text-muted-foreground">Building connections, sharing knowledge</p>
+          <p className="text-xl text-muted-foreground">
+            Building connections, sharing knowledge
+          </p>
         </div>
 
         {/* Timeline-style layout */}
@@ -52,7 +45,10 @@ export function OrganizationsSection() {
 
           <div className="space-y-12">
             {organizations.map((org, index) => (
-              <div key={index} className="relative flex items-start space-x-8 group">
+              <div
+                key={index}
+                className="relative flex items-start space-x-8 group"
+              >
                 {/* Timeline dot */}
                 <div className="relative z-10 flex-shrink-0">
                   <div
@@ -72,7 +68,9 @@ export function OrganizationsSection() {
                         </h3>
                         <div className="flex flex-wrap gap-4 text-sm text-muted-foreground">
                           <div className="flex items-center">
-                            <span className="font-medium text-foreground mr-2">{org.role}</span>
+                            <span className="font-medium text-foreground mr-2">
+                              {org.role}
+                            </span>
                           </div>
                           <div className="flex items-center">
                             <Calendar className="mr-1 h-3 w-3" />
@@ -84,10 +82,14 @@ export function OrganizationsSection() {
                           </div>
                         </div>
                       </div>
-                      <span className="section-number text-2xl">0{index + 1}</span>
+                      <span className="section-number text-2xl">
+                        0{index + 1}
+                      </span>
                     </div>
 
-                    <p className="text-muted-foreground leading-relaxed">{org.description}</p>
+                    <p className="text-muted-foreground leading-relaxed">
+                      {org.description}
+                    </p>
                   </div>
                 </div>
               </div>
@@ -96,5 +98,5 @@ export function OrganizationsSection() {
         </div>
       </div>
     </section>
-  )
+  );
 }

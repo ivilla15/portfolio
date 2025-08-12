@@ -1,4 +1,4 @@
-import { Heart, Github, Linkedin, Mail, Coffee } from "lucide-react"
+import { Heart, Github, Linkedin, Mail, Coffee } from "lucide-react";
 
 export function Footer() {
   return (
@@ -18,11 +18,14 @@ export function Footer() {
           <div className="space-y-4">
             <div className="flex items-center justify-center space-x-2 text-white/90">
               <span className="text-2xl">👋</span>
-              <p className="text-lg font-medium">Designed & built with care by Isaiah Villalobos</p>
+              <p className="text-lg font-medium">
+                Designed & built with care by Isaiah Villalobos
+              </p>
             </div>
             <p className="text-white/70 max-w-2xl mx-auto leading-relaxed">
-              This portfolio was crafted with attention to detail, modern web technologies, and a passion for creating
-              meaningful digital experiences. Every pixel has a purpose.
+              This portfolio was crafted with attention to detail, modern web
+              technologies, and a passion for creating meaningful digital
+              experiences. Every pixel has a purpose.
             </p>
           </div>
 
@@ -57,15 +60,16 @@ export function Footer() {
           {/* Tech stack mention */}
           <div className="pt-8 border-t border-white/20">
             <p className="text-white/60 text-sm">
-              Built with Next.js 15, React 19, TypeScript, Tailwind CSS v4, and shadcn/ui
+              Built with Next.js 15, React 19, TypeScript, Tailwind CSS v4, and
+              shadcn/ui
             </p>
             <div className="flex items-center justify-center space-x-2 mt-2 text-white/50">
               <Heart className="h-4 w-4 text-red-400" />
-              <span className="text-xs">Made with love in 2024</span>
+              <span className="text-xs">Made with love in 2025</span>
             </div>
           </div>
         </div>
       </div>
     </footer>
-  )
+  );
 }

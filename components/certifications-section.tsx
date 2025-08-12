@@ -1,6 +1,6 @@
-import { Card, CardContent, CardHeader } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import { Award, Shield, Star } from "lucide-react"
+import { Card, CardContent, CardHeader } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Book, Code2, Rocket, Shield, ShieldCheck } from "lucide-react";
 
 export function CertificationsSection() {
   const certifications = [
@@ -8,30 +8,43 @@ export function CertificationsSection() {
       title: "AWS Certified Cloud Practitioner",
       issuer: "Amazon Web Services",
       year: "2024",
-      status: "Active",
+      status: "In Progress",
       icon: Shield,
       color: "from-orange-500 to-yellow-500",
-      description: "Foundational understanding of AWS Cloud services and architecture",
+      description:
+        "Studying foundational AWS services, billing, architecture, and security for certification.",
     },
     {
-      title: "Google Cloud Associate Cloud Engineer",
-      issuer: "Google Cloud",
-      year: "2023",
-      status: "Active",
-      icon: Star,
-      color: "from-blue-500 to-green-500",
-      description: "Deploy applications, monitor operations, and manage enterprise solutions",
+      title: "Certified Full Stack Developer Curriculum",
+      issuer: "Self-Paced Curriculum",
+      year: "2024",
+      status: "In Progress",
+      icon: Rocket,
+      color: "from-teal-500 to-cyan-600",
+      description:
+        "Hands-on learning focused on React, TypeScript, Next.js, Node.js, and deployment pipelines.",
     },
     {
-      title: "Microsoft Azure Fundamentals",
-      issuer: "Microsoft",
-      year: "2023",
-      status: "Active",
-      icon: Award,
-      color: "from-blue-600 to-purple-600",
-      description: "Core Azure services, solutions, and management tools",
+      title: "AWS Certified Developer – Associate",
+      issuer: "Amazon Web Services",
+      year: "2025",
+      status: "Planned",
+      icon: ShieldCheck, // Or BadgeCheck, depending on your icon set
+      color: "from-yellow-500 to-orange-600",
+      description:
+        "Next step after Cloud Practitioner: mastering AWS development tools and serverless architecture.",
     },
-  ]
+    {
+      title: "Full-Stack Developer Program",
+      issuer: "CodePath",
+      year: "2025",
+      status: "Planned",
+      icon: Book, // Or Book, GraduationCap, Code2
+      color: "from-indigo-500 to-fuchsia-600",
+      description:
+        "Comprehensive hands-on curriculum covering backend, frontend, and deployment with real-world projects.",
+    },
+  ];
 
   return (
     <section className="py-32 px-4 relative bg-muted/30">
@@ -44,16 +57,18 @@ export function CertificationsSection() {
           <h2 className="text-5xl font-bold mt-4 mb-6">
             Professional <span className="gradient-text">Certifications</span>
           </h2>
-          <p className="text-xl text-muted-foreground">Validated expertise in cloud technologies</p>
+          <p className="text-xl text-muted-foreground">
+            Validated expertise in cloud technologies
+          </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="flex flex-wrap justify-center gap-8">
           {certifications.map((cert, index) => {
-            const IconComponent = cert.icon
+            const IconComponent = cert.icon;
             return (
               <Card
                 key={index}
-                className="creative-card border-0 bg-gradient-to-br from-background to-muted/20 overflow-hidden group"
+                className="w-full max-w-sm creative-card border-0 bg-gradient-to-br from-background to-muted/20 overflow-hidden group"
                 style={{
                   animationDelay: `${index * 0.2}s`,
                   animation: "slideInUp 0.8s ease-out forwards",
@@ -66,7 +81,9 @@ export function CertificationsSection() {
                     >
                       <IconComponent className="h-7 w-7 text-white" />
                     </div>
-                    <Badge className={`bg-gradient-to-r ${cert.color} text-white border-0 font-medium`}>
+                    <Badge
+                      className={`bg-gradient-to-r ${cert.color} text-white border-0 font-medium`}
+                    >
                       {cert.status}
                     </Badge>
                   </div>
@@ -77,21 +94,27 @@ export function CertificationsSection() {
                     <h3 className="text-lg font-bold leading-tight group-hover:gradient-text transition-all duration-300">
                       {cert.title}
                     </h3>
-                    <p className="text-muted-foreground font-medium">{cert.issuer}</p>
+                    <p className="text-muted-foreground font-medium">
+                      {cert.issuer}
+                    </p>
                   </div>
 
-                  <p className="text-sm text-muted-foreground leading-relaxed">{cert.description}</p>
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    {cert.description}
+                  </p>
 
                   <div className="flex justify-between items-center pt-2">
-                    <span className="text-sm text-muted-foreground">Earned {cert.year}</span>
+                    <span className="text-sm text-muted-foreground">
+                      Earned {cert.year}
+                    </span>
                     <span className="section-number">0{index + 1}</span>
                   </div>
                 </CardContent>
               </Card>
-            )
+            );
           })}
         </div>
       </div>
     </section>
-  )
+  );
 }
