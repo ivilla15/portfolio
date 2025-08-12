@@ -1,20 +1,97 @@
-import { Badge } from "@/components/ui/badge"
+import { Badge } from "@/components/ui/badge";
 
 export function TechStackSection() {
   const technologies = [
     { name: "React", category: "frontend", color: "from-blue-500 to-cyan-500" },
-    { name: "TypeScript", category: "language", color: "from-blue-600 to-blue-800" },
-    { name: "Next.js", category: "framework", color: "from-gray-700 to-gray-900" },
-    { name: "Node.js", category: "backend", color: "from-green-500 to-green-700" },
-    { name: "Python", category: "language", color: "from-yellow-500 to-blue-600" },
+    {
+      name: "Next.js",
+      category: "framework",
+      color: "from-purple-700 to-purple-900",
+    },
+    {
+      name: "TypeScript",
+      category: "language",
+      color: "from-blue-600 to-blue-800",
+    },
+    {
+      name: "JavaScript",
+      category: "language",
+      color: "from-yellow-400 to-yellow-600",
+    },
+    {
+      name: "Node.js",
+      category: "backend",
+      color: "from-green-500 to-green-700",
+    },
+    {
+      name: "styled-components",
+      category: "styling",
+      color: "from-pink-500 to-red-500",
+    },
+    {
+      name: "Tailwind CSS",
+      category: "styling",
+      color: "from-cyan-400 to-blue-500",
+    },
+    {
+      name: "shadcn/ui",
+      category: "component-library",
+      color: "from-green-600 to-pink-600",
+    },
+    {
+      name: "V0",
+      category: "ai-tools",
+      color: "from-fuchsia-500 to-indigo-500",
+    },
+    {
+      name: "ESLint",
+      category: "tooling",
+      color: "from-emerald-500 to-emerald-700",
+    },
+    {
+      name: "Prettier",
+      category: "tooling",
+      color: "from-purple-400 to-pink-500",
+    },
+    { name: "Husky", category: "tooling", color: "from-rose-400 to-rose-600" },
+    {
+      name: "lint-staged",
+      category: "tooling",
+      color: "from-green-500 to-blue-600",
+    },
+    {
+      name: "Git",
+      category: "tooling",
+      color: "from-orange-500 to-orange-700",
+    },
     { name: "AWS", category: "cloud", color: "from-orange-500 to-yellow-500" },
-    { name: "Docker", category: "devops", color: "from-blue-400 to-blue-600" },
-    { name: "PostgreSQL", category: "database", color: "from-blue-700 to-indigo-700" },
-    { name: "MongoDB", category: "database", color: "from-green-600 to-green-800" },
-    { name: "Tailwind CSS", category: "styling", color: "from-cyan-400 to-blue-500" },
-    { name: "GraphQL", category: "api", color: "from-pink-500 to-purple-600" },
-    { name: "REST APIs", category: "api", color: "from-purple-500 to-indigo-600" },
-  ]
+    {
+      name: "Python",
+      category: "language",
+      color: "from-yellow-500 to-blue-600",
+    },
+    {
+      name: "REST APIs",
+      category: "api",
+      color: "from-purple-500 to-indigo-600",
+    },
+    { name: "Java", category: "language", color: "from-red-700 to-blue-700" },
+    {
+      name: "Spring",
+      category: "backend",
+      color: "from-cyan-700 to-teal-300",
+    },
+    {
+      name: "Django",
+      category: "backend",
+      color: "from-indigo-500 to-pink-600",
+    },
+    {
+      name: "SQL",
+      category: "database",
+      color: "from-fuchsia-500 to-fuchsia-700",
+    },
+  ];
 
   return (
     <section className="py-32 px-4 relative bg-muted/50">
@@ -23,11 +100,13 @@ export function TechStackSection() {
 
       <div className="max-w-5xl mx-auto text-center">
         <div className="mb-20">
-          <span className="section-number">// STACK</span>
+          <span className="section-number">{/* STACK */}</span>
           <h2 className="text-5xl font-bold mt-4 mb-6">
             Tech <span className="gradient-text">Arsenal</span>
           </h2>
-          <p className="text-xl text-muted-foreground">Tools I use to bring ideas to life</p>
+          <p className="text-xl text-muted-foreground">
+            Tools I use to bring ideas to life
+          </p>
         </div>
 
         <div className="flex flex-wrap justify-center gap-4">
@@ -74,5 +153,5 @@ export function TechStackSection() {
         </div>
       </div>
     </section>
-  )
+  );
 }

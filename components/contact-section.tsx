@@ -1,13 +1,23 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
-import { Label } from "@/components/ui/label"
-import { Mail, Github, Linkedin, Send, MessageCircle, Coffee } from "lucide-react"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Label } from "@/components/ui/label";
+import {
+  Mail,
+  Github,
+  Linkedin,
+  Send,
+  MessageCircle,
+  Coffee,
+} from "lucide-react";
 
 export function ContactSection() {
   return (
-    <section id="contact" className="py-32 px-4 relative overflow-hidden bg-muted/50">
+    <section
+      id="contact"
+      className="py-32 px-4 relative overflow-hidden bg-muted/50"
+    >
       {/* Subtle top border divider */}
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-ring/20 to-transparent" />
 
@@ -17,7 +27,9 @@ export function ContactSection() {
           <h2 className="text-5xl font-bold mt-4 mb-6">
             Let's <span className="gradient-text">Connect</span>
           </h2>
-          <p className="text-xl text-muted-foreground">Ready to build something amazing together?</p>
+          <p className="text-xl text-muted-foreground">
+            Ready to build something amazing together?
+          </p>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-0 rounded-3xl overflow-hidden shadow-2xl">
@@ -31,7 +43,8 @@ export function ContactSection() {
                 <CardTitle className="text-2xl">Send me a message</CardTitle>
               </div>
               <p className="text-muted-foreground text-lg">
-                Got a project in mind? Let's discuss how we can bring your ideas to life.
+                Got a project in mind? Let's discuss how we can bring your ideas
+                to life.
               </p>
             </CardHeader>
 
@@ -105,8 +118,9 @@ export function ContactSection() {
                 <div className="space-y-4">
                   <h3 className="text-3xl font-bold">Get In Touch</h3>
                   <p className="text-white/80 text-lg leading-relaxed">
-                    I'm always excited to connect with fellow developers, potential collaborators, or anyone with
-                    interesting projects. Let's create something extraordinary together.
+                    I'm always excited to connect with fellow developers,
+                    potential collaborators, or anyone with interesting
+                    projects. Let's create something extraordinary together.
                   </p>
                 </div>
 
@@ -117,7 +131,7 @@ export function ContactSection() {
                     </div>
                     <div>
                       <p className="font-medium">Email</p>
-                      <p className="text-white/80">isaiah.villalobos@email.com</p>
+                      <p className="text-white/80">ivilla.devcs@gmail.com</p>
                     </div>
                   </div>
 
@@ -127,7 +141,7 @@ export function ContactSection() {
                     </div>
                     <div>
                       <p className="font-medium">GitHub</p>
-                      <p className="text-white/80">github.com/isaiahvillalobos</p>
+                      <p className="text-white/80">github.com/ivilla15</p>
                     </div>
                   </div>
 
@@ -137,7 +151,9 @@ export function ContactSection() {
                     </div>
                     <div>
                       <p className="font-medium">LinkedIn</p>
-                      <p className="text-white/80">linkedin.com/in/isaiahvillalobos</p>
+                      <p className="text-white/80">
+                        linkedin.com/in/isaiah-villalobos
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -148,8 +164,9 @@ export function ContactSection() {
                     <span className="font-medium">Coffee Chat?</span>
                   </div>
                   <p className="text-white/80 leading-relaxed">
-                    I'm always up for a virtual coffee chat to discuss technology, share experiences, or explore
-                    potential collaborations. Don't hesitate to reach out!
+                    I'm always up for a virtual coffee chat to discuss
+                    technology, share experiences, or explore potential
+                    collaborations. Don't hesitate to reach out!
                   </p>
                 </div>
               </div>
@@ -158,5 +175,5 @@ export function ContactSection() {
         </div>
       </div>
     </section>
-  )
+  );
 }

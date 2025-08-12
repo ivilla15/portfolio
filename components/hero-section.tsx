@@ -1,14 +1,29 @@
-import { Button } from "@/components/ui/button"
-import { ArrowRight, Mail, Download } from "lucide-react"
+import { Button } from "@/components/ui/button";
+import { ArrowRight, Mail, Download } from "lucide-react";
 
 export function HeroSection() {
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center px-4 pt-16 relative overflow-hidden">
+    <section
+      id="home"
+      className="min-h-screen flex items-center justify-center px-4 pt-16 relative overflow-hidden"
+    >
       {/* Floating background shapes */}
-      <div className="floating-shape w-32 h-32 top-20 left-10 animate-float" style={{ animationDelay: "0s" }} />
-      <div className="floating-shape w-24 h-24 top-40 right-20 animate-float" style={{ animationDelay: "2s" }} />
-      <div className="floating-shape w-40 h-40 bottom-32 left-1/4 animate-float" style={{ animationDelay: "4s" }} />
-      <div className="floating-shape w-28 h-28 bottom-20 right-10 animate-float" style={{ animationDelay: "1s" }} />
+      <div
+        className="floating-shape w-32 h-32 top-20 left-10 animate-float"
+        style={{ animationDelay: "0s" }}
+      />
+      <div
+        className="floating-shape w-24 h-24 top-40 right-20 animate-float"
+        style={{ animationDelay: "2s" }}
+      />
+      <div
+        className="floating-shape w-40 h-40 bottom-32 left-1/4 animate-float"
+        style={{ animationDelay: "4s" }}
+      />
+      <div
+        className="floating-shape w-28 h-28 bottom-20 right-10 animate-float"
+        style={{ animationDelay: "1s" }}
+      />
 
       <div className="max-w-6xl mx-auto text-center space-y-12 relative z-10">
         <div className="space-y-8 animate-fade-scale">
@@ -30,8 +45,9 @@ export function HeroSection() {
               FULL-STACK DEVELOPER & CLOUD ARCHITECT
             </h2>
             <p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-              Crafting digital experiences that matter. I build scalable web applications and cloud solutions that solve
-              real problems and create lasting impact.
+              Crafting digital experiences that matter. I build scalable web
+              applications and cloud solutions that solve real problems and
+              create lasting impact.
             </p>
           </div>
         </div>
@@ -56,7 +72,7 @@ export function HeroSection() {
           </Button>
         </div>
 
-        {/* Featured in section */}
+        {/* Featured in section
         <div className="pt-16 animate-slide-up" style={{ animationDelay: "0.3s" }}>
           <p className="text-sm text-muted-foreground mb-6 tracking-wider">AS FEATURED IN</p>
           <div className="flex flex-wrap justify-center items-center gap-8 opacity-60">
@@ -66,7 +82,8 @@ export function HeroSection() {
             <div className="text-2xl font-bold text-muted-foreground">CloudNative</div>
           </div>
         </div>
+        */}
       </div>
     </section>
-  )
+  );
 }

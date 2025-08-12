@@ -1,5 +1,5 @@
-import { Card, CardContent } from "@/components/ui/card"
-import { BookOpen, Target, Zap } from "lucide-react"
+import { Card, CardContent } from "@/components/ui/card";
+import { BookOpen, Target, Zap } from "lucide-react";
 
 export function CurrentlyLearningSection() {
   return (
@@ -20,7 +20,10 @@ export function CurrentlyLearningSection() {
               </div>
               <h3 className="text-xl font-bold mb-4">Current Focus</h3>
               <p className="text-muted-foreground leading-relaxed">
-                AWS Developer Associate certification and diving deep into serverless architecture patterns.
+                Building standout full&ndash;stack projects using Next.js,
+                TypeScript, and Tailwind while preparing for the AWS Developer
+                Associate certification. Focused on delivering polished,
+                accessible web experiences.
               </p>
             </CardContent>
           </Card>
@@ -32,7 +35,10 @@ export function CurrentlyLearningSection() {
               </div>
               <h3 className="text-xl font-bold mb-4">Exploring</h3>
               <p className="text-muted-foreground leading-relaxed">
-                Advanced React patterns, microservices with Docker & Kubernetes, and ML fundamentals with Python.
+                Exploring design&ndash;to&ndash;code AI tools like V0, advanced
+                React 18 patterns, and refining my use of shadcn/ui and
+                styled-components. Also building stronger tooling habits with
+                ESLint, Prettier, and Git workflows like Husky and lint-staged.
               </p>
             </CardContent>
           </Card>
@@ -44,7 +50,10 @@ export function CurrentlyLearningSection() {
               </div>
               <h3 className="text-xl font-bold mb-4">Next Up</h3>
               <p className="text-muted-foreground leading-relaxed">
-                Infrastructure as code with Terraform and system design principles for large-scale applications.
+                Deepening my backend skills with APIs and authentication,
+                starting the AWS Developer Associate path, and contributing to
+                open source while building polished full-stack apps to showcase
+                on my portfolio.
               </p>
             </CardContent>
           </Card>
@@ -52,10 +61,11 @@ export function CurrentlyLearningSection() {
 
         <div className="mt-16 text-center">
           <p className="text-lg text-muted-foreground italic">
-            "The day you stop learning is the day you stop growing. I'm committed to staying curious."
+            "The day you stop learning is the day you stop growing. I'm
+            committed to staying curious."
           </p>
         </div>
       </div>
     </section>
-  )
+  );
 }

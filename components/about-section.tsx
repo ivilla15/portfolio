@@ -1,5 +1,5 @@
-import { Card, CardContent } from "@/components/ui/card"
-import { Code, Coffee, Lightbulb } from "lucide-react"
+import { Card, CardContent } from "@/components/ui/card";
+import { Code, Coffee, Lightbulb } from "lucide-react";
 
 export function AboutSection() {
   return (
@@ -13,7 +13,9 @@ export function AboutSection() {
           <h2 className="text-5xl font-bold mt-4 mb-6">
             About <span className="gradient-text">Me</span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">The story behind the code</p>
+          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+            The story behind the code
+          </p>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -28,9 +30,13 @@ export function AboutSection() {
                   <h3 className="text-xl font-semibold">The Developer</h3>
                 </div>
                 <p className="text-muted-foreground leading-relaxed">
-                  I'm not just another developer who codes for a living. I'm someone who genuinely believes technology
-                  can change lives. With 3+ years of turning coffee into code, I specialize in React, TypeScript, and
-                  AWS—but more importantly, I specialize in solving problems that matter.
+                  I'm a Computer Science major and Web Developer, where I bring
+                  accessible, high-performance sites to life using React,
+                  TypeScript, and styled-components. I specialize in modern tech
+                  like Next.js, Tailwind, and shadcn/ui—always with a strong
+                  focus on accessibility, responsiveness, and performance.
+                  Whether I&apos;m improving Wave scores or building reusable
+                  components, I write code with real users in mind.
                 </p>
               </CardContent>
             </Card>
@@ -44,9 +50,12 @@ export function AboutSection() {
                   <h3 className="text-xl font-semibold">The Problem Solver</h3>
                 </div>
                 <p className="text-muted-foreground leading-relaxed">
-                  My journey started in Computer Science, but it really began when I realized that every line of code I
-                  write has the potential to make someone's day a little easier. Whether it's optimizing a slow API or
-                  building an intuitive user interface, I'm driven by impact.
+                  I don&apos;t just ship code, I solve problems that matter.
+                  From building inclusive components to fixing critical layout
+                  bugs with custom responsive styling, I thrive on turning
+                  ambiguity into clarity. I love working through constraints and
+                  collaborating with teams to deliver scalable, maintainable,
+                  and thoughtful solutions.
                 </p>
               </CardContent>
             </Card>
@@ -60,9 +69,14 @@ export function AboutSection() {
                   <h3 className="text-xl font-semibold">The Human</h3>
                 </div>
                 <p className="text-muted-foreground leading-relaxed">
-                  When I'm not debugging or architecting cloud solutions, you'll find me contributing to open-source
-                  projects, mentoring junior developers, or writing about the latest in serverless architecture. I
-                  believe the best code comes from understanding people, not just syntax.
+                  Beyond the code, I&apos;m passionate about inclusive design,
+                  clean documentation, and helping others grow. I contribute to
+                  student-run tech initiatives, document reusable patterns, and
+                  constantly explore how AI tools like V0 and Copilot can
+                  enhance&mdash;not replace&mdash;creative development. I'm
+                  currently building my portfolio, prepping for AWS
+                  certifications, and working toward launching full&mdash;stack
+                  projects that reflect both skill and purpose.
                 </p>
               </CardContent>
             </Card>
@@ -73,8 +87,8 @@ export function AboutSection() {
             <div className="relative">
               <div className="w-80 h-80 bg-gradient-to-br from-blue-500/20 to-purple-500/20 rounded-3xl flex items-center justify-center backdrop-blur-sm border border-white/10">
                 <img
-                  src="/placeholder.svg?height=320&width=320"
-                  alt="Isaiah Villalobos"
+                  src="https://udxisykpeytksyqndzys.supabase.co/storage/v1/object/public/portfolio/profile-image.webp"
+                  alt="Image of Isaiah"
                   className="w-72 h-72 object-cover rounded-2xl"
                 />
               </div>
@@ -87,5 +101,5 @@ export function AboutSection() {
         </div>
       </div>
     </section>
-  )
+  );
 }

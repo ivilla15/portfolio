@@ -1,47 +1,49 @@
-import { Card, CardContent } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
-import { Badge } from "@/components/ui/badge"
-import { Download, MapPin, Calendar, Briefcase, Code2, Rocket } from "lucide-react"
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import {
+  Download,
+  MapPin,
+  Calendar,
+  Briefcase,
+  Code2,
+  Rocket,
+} from "lucide-react";
 
 export function ExperienceSection() {
   const experiences = [
     {
-      title: "Senior Full-Stack Developer",
-      company: "TechCorp Solutions",
-      location: "San Francisco, CA",
-      period: "Jan 2022 - Present",
-      type: "Full-time",
-      icon: Rocket,
+      title: "Full-Stack Developer",
+      company: "California State University Los Angeles Student Union",
+      location: "Los Angeles, CA",
+      period: "May 2025 - Present",
+      type: "Intern",
+      icon: Code2,
       color: "from-blue-500 to-purple-600",
       responsibilities: [
-        "Led development of microservices architecture serving 100k+ daily active users",
-        "Implemented CI/CD pipelines reducing deployment time by 60%",
-        "Mentored junior developers and conducted code reviews",
-        "Collaborated with product team to define technical requirements and roadmap",
+        "Developed and launched the WingspanLA website in under 3 weeks using React, styled-components, and Tailwind CSS, achieving a 100% error-free WAVE accessibility report on first release",
+        "Resolved all WAVE errors across the University-Student Union (U-SU) website, improving accessibility compliance site-wide for over 10,000 monthly users",
+        "Refactored static layouts into responsive, reusable components using shadcn/ui and custom theming, reducing duplicated CSS by 40%",
+        "Integrated V0 (AI design-to-code) into the dev workflow to accelerate early UI generation and reduce design-to-code turnaround time by over 50%",
+        "Led setup and enforcement of ESLint, Prettier, Husky, and lint-staged across the team's repos, improving code consistency and reducing reviewer feedback loops by 30%",
+        "Collaborated with cross-functional teams to implement updates and accessibility fixes across 10+ Cal State LA department pages using Git, Figma specs, and structured page audits",
+        "Performed manual and automated accessibility audits using WAVE and Lighthouse, resolving 60+ contrast, heading, and landmark issues in production environments",
+        "Provided hands-on guidance to student designers, introducing them to HTML/CSS and layout best practices to help them code and deploy their own static pages",
       ],
     },
-    {
-      title: "Software Development Intern",
-      company: "StartupXYZ",
-      location: "Remote",
-      period: "Jun 2021 - Dec 2021",
-      type: "Internship",
-      icon: Code2,
-      color: "from-green-500 to-teal-600",
-      responsibilities: [
-        "Developed React components for customer-facing dashboard",
-        "Built RESTful APIs using Node.js and Express",
-        "Participated in agile development process and daily standups",
-        "Contributed to open-source projects and technical documentation",
-      ],
-    },
-  ]
+  ];
 
   return (
     <section id="experience" className="py-32 px-4 relative overflow-hidden">
       {/* Background elements */}
-      <div className="floating-shape w-40 h-40 top-20 right-10 animate-float" style={{ animationDelay: "1s" }} />
-      <div className="floating-shape w-32 h-32 bottom-32 left-20 animate-float" style={{ animationDelay: "3s" }} />
+      <div
+        className="floating-shape w-40 h-40 top-20 right-10 animate-float"
+        style={{ animationDelay: "1s" }}
+      />
+      <div
+        className="floating-shape w-32 h-32 bottom-32 left-20 animate-float"
+        style={{ animationDelay: "3s" }}
+      />
 
       <div className="max-w-5xl mx-auto">
         <div className="text-center mb-20">
@@ -49,7 +51,9 @@ export function ExperienceSection() {
           <h2 className="text-5xl font-bold mt-4 mb-6">
             Professional <span className="gradient-text">Journey</span>
           </h2>
-          <p className="text-xl text-muted-foreground mb-12">Where code meets impact</p>
+          <p className="text-xl text-muted-foreground mb-12">
+            Where code meets impact
+          </p>
 
           <Button
             size="lg"
@@ -67,9 +71,12 @@ export function ExperienceSection() {
 
           <div className="space-y-16">
             {experiences.map((exp, index) => {
-              const IconComponent = exp.icon
+              const IconComponent = exp.icon;
               return (
-                <div key={index} className="relative flex items-start space-x-8 group">
+                <div
+                  key={index}
+                  className="relative flex items-start space-x-8 group"
+                >
                   {/* Timeline dot */}
                   <div className="relative z-10 flex-shrink-0">
                     <div
@@ -91,9 +98,15 @@ export function ExperienceSection() {
                               <h3 className="text-2xl font-bold group-hover:gradient-text transition-all duration-300">
                                 {exp.title}
                               </h3>
-                              <Badge className={`bg-gradient-to-r ${exp.color} text-white border-0`}>{exp.type}</Badge>
+                              <Badge
+                                className={`bg-gradient-to-r ${exp.color} text-white border-0`}
+                              >
+                                {exp.type}
+                              </Badge>
                             </div>
-                            <p className="text-xl text-muted-foreground font-medium">{exp.company}</p>
+                            <p className="text-xl text-muted-foreground font-medium">
+                              {exp.company}
+                            </p>
                           </div>
 
                           <div className="flex flex-wrap gap-4 text-sm text-muted-foreground">
@@ -109,7 +122,9 @@ export function ExperienceSection() {
                         </div>
 
                         <div className="text-right">
-                          <span className="section-number text-2xl">0{index + 1}</span>
+                          <span className="section-number text-2xl">
+                            0{index + 1}
+                          </span>
                         </div>
                       </div>
 
@@ -120,7 +135,10 @@ export function ExperienceSection() {
                         </h4>
                         <div className="grid gap-3">
                           {exp.responsibilities.map((responsibility, idx) => (
-                            <div key={idx} className="flex items-start space-x-3 group/item">
+                            <div
+                              key={idx}
+                              className="flex items-start space-x-3 group/item"
+                            >
                               <div className="w-2 h-2 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full mt-2 flex-shrink-0 group-hover/item:scale-150 transition-transform duration-200" />
                               <span className="text-muted-foreground leading-relaxed group-hover/item:text-foreground transition-colors duration-200">
                                 {responsibility}
@@ -132,11 +150,11 @@ export function ExperienceSection() {
                     </CardContent>
                   </Card>
                 </div>
-              )
+              );
             })}
           </div>
         </div>
       </div>
     </section>
-  )
+  );
 }
