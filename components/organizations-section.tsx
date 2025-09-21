@@ -3,21 +3,21 @@ import { Users, Calendar, MapPin } from "lucide-react";
 export function OrganizationsSection() {
   const organizations = [
     {
-      name: "TIPSE - Techincal Interview Preparation for Software Engineers",
+      name: "TIPSE – Technical Interview Preparation for Software Engineers",
       role: "Active Member",
-      period: "2025 - Present",
+      period: "2025 – Present",
       location: "Los Angeles, CA",
       description:
-        "Professional organization focused on preparing students to become professionals in the technology space and being a place where they can go to ask for help, learn new skills, and practice technical skills.",
+        "Student-led organization focused on preparing future software engineers through collaborative interview prep, technical workshops, peer mentorship, and community-driven learning. A supportive space to build confidence in algorithms, systems, and career readiness.",
       color: "from-blue-500 to-purple-600",
     },
     {
-      name: "ACM - Association for Computing Machinery",
+      name: "ACM – Association for Computing Machinery",
       role: "Active Member",
-      period: "2022 - Present",
-      location: "Bay Area",
+      period: "2022 – Present",
+      location: "Los Angeles, CA",
       description:
-        "Provide computer science knowledge and resources to students. Host programming workshops that teach projects and new technologies outside of classes at Cal State LA. Share knowledge and advice of the computing field in our mentorship program. Provide professional development workshops to help members prepare for the workforce. Build a community through our events, promoting involvement outside of campus. Serve students and those interested in the betterment of our Los Angeles community.",
+        "Provides computer science knowledge and professional development resources to students at Cal State LA. Hosts workshops on emerging technologies, project-based learning, and career preparation. Also offers mentorship opportunities and fosters a tight-knit student community through events and outreach.",
       color: "from-green-500 to-teal-600",
     },
   ];

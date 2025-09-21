@@ -46,6 +46,15 @@ export function AwardsSection() {
       emoji: "🎤",
       color: "from-red-500 to-pink-500",
     },
+    {
+      title: "GMiS 2025 Registration Reimbursement Winner",
+      organization: "Great Minds in STEM / CAHSI",
+      year: "2025",
+      description:
+        "Selected as a recipient of full conference registration coverage to attend GMiS 2025 in San Diego as a CS student representative.",
+      emoji: "🎟️",
+      color: "from-indigo-500 to-violet-500",
+    },
   ];
 
   return (

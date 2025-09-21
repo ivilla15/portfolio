@@ -21,9 +21,9 @@ export function CurrentlyLearningSection() {
               <h3 className="text-xl font-bold mb-4">Current Focus</h3>
               <p className="text-muted-foreground leading-relaxed">
                 Building standout full&ndash;stack projects using Next.js,
-                TypeScript, and Tailwind while preparing for the AWS Developer
-                Associate certification. Focused on delivering polished,
-                accessible web experiences.
+                TypeScript, and Tailwind while preparing for the AWS Solutions
+                Architect Associate certification. Focused on accessibility,
+                performance, and real-world deployment using Vercel.
               </p>
             </CardContent>
           </Card>
@@ -36,9 +36,9 @@ export function CurrentlyLearningSection() {
               <h3 className="text-xl font-bold mb-4">Exploring</h3>
               <p className="text-muted-foreground leading-relaxed">
                 Exploring design&ndash;to&ndash;code AI tools like V0, advanced
-                React 18 patterns, and refining my use of shadcn/ui and
-                styled-components. Also building stronger tooling habits with
-                ESLint, Prettier, and Git workflows like Husky and lint-staged.
+                React patterns, and scalable UI systems with shadcn/ui and
+                styled&ndash;components. Also refining cloud fundamentals and
+                staying sharp with version control best practices.
               </p>
             </CardContent>
           </Card>
@@ -50,10 +50,10 @@ export function CurrentlyLearningSection() {
               </div>
               <h3 className="text-xl font-bold mb-4">Next Up</h3>
               <p className="text-muted-foreground leading-relaxed">
-                Deepening my backend skills with APIs and authentication,
-                starting the AWS Developer Associate path, and contributing to
-                open source while building polished full-stack apps to showcase
-                on my portfolio.
+                Deepening backend skills with API design, authentication, and
+                AWS architecture. Contributing to open source and launching the
+                Interview Prep Tracker&ndash;my self&ndash;paced system for
+                mastering DSA and system design before job season.
               </p>
             </CardContent>
           </Card>

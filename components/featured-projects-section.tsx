@@ -1,41 +1,33 @@
-import { Card, CardContent, CardHeader } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
-import { Badge } from "@/components/ui/badge"
-import { Code, ExternalLink, Star } from "lucide-react"
+import { Card, CardContent, CardHeader } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { Code, ExternalLink, Star } from "lucide-react";
 
 export function FeaturedProjectsSection() {
   const projects = [
     {
-      title: "E-Commerce Platform",
+      title: "Book Management System",
       description:
-        "A full-stack e-commerce solution that doesn't just sell products—it creates experiences. Built with modern architecture and scalable design.",
-      image: "/placeholder.svg?height=200&width=300",
-      technologies: ["Next.js", "TypeScript", "PostgreSQL", "Stripe", "Tailwind CSS"],
-      codeUrl: "#",
-      liveUrl: "#",
+        "Full-stack platform simulating a real-world book marketplace. Features role-based access control (RBAC), search, favorites, comments, and cart across 12+ authenticated views.",
+      image: "/images/book-preview.webp",
+      technologies: ["Django", "Bootstrap", "PostgreSQL", "RBAC", "Python"],
+      codeUrl: "https://github.com/ivilla15/book-management-system-django",
+      liveUrl: "https://book.ivilla.dev",
       featured: true,
     },
     {
-      title: "Task Management API",
+      title: "Swimming Academy Registration System",
       description:
-        "RESTful API that transforms chaos into clarity. Real-time collaboration features that actually work the way teams think.",
+        "Spring Boot web app for managing class registration and student scheduling at a swim academy. Implements secure data handling with Spring Data and a responsive UI using JTE templates.",
       image: "/placeholder.svg?height=200&width=300",
-      technologies: ["Node.js", "Express", "MongoDB", "Socket.io", "Jest"],
-      codeUrl: "#",
-      liveUrl: "#",
+      technologies: ["Spring Boot", "Spring MVC", "JTE", "Bootstrap", "MySQL"],
+      codeUrl:
+        "https://github.com/ivilla15/Swimming-Academy-Registration-System", // <-- replace with actual GitHub link
+      liveUrl: "#", // or deployed URL if available
       featured: false,
     },
-    {
-      title: "Weather Dashboard",
-      description:
-        "Weather app that goes beyond 'sunny' or 'rainy'. Interactive forecasts with the kind of detail that helps you plan your life.",
-      image: "/placeholder.svg?height=200&width=300",
-      technologies: ["React", "TypeScript", "OpenWeather API", "Chart.js", "PWA"],
-      codeUrl: "#",
-      liveUrl: "#",
-      featured: false,
-    },
-  ]
+    // existing projects...
+  ];
 
   return (
     <section id="projects" className="py-32 px-4 relative">
@@ -82,7 +74,9 @@ export function FeaturedProjectsSection() {
                   </h3>
                   <span className="section-number">0{index + 1}</span>
                 </div>
-                <p className="text-muted-foreground leading-relaxed">{project.description}</p>
+                <p className="text-muted-foreground leading-relaxed">
+                  {project.description}
+                </p>
               </CardHeader>
 
               <CardContent className="space-y-6">
@@ -98,28 +92,40 @@ export function FeaturedProjectsSection() {
                   ))}
                 </div>
 
-                <div className="flex gap-3">
+                <a
+                  href={project.codeUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex-1"
+                >
                   <Button
                     variant="outline"
                     size="sm"
-                    className="flex-1 border-2 hover:bg-foreground hover:text-background transition-all duration-300 bg-transparent"
+                    className="w-full border-2 hover:bg-foreground hover:text-background transition-all duration-300 bg-transparent"
                   >
                     <Code className="mr-2 h-4 w-4" />
                     Code
                   </Button>
+                </a>
+                <a
+                  href={project.liveUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex-1"
+                >
                   <Button
                     size="sm"
-                    className="flex-1 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700"
+                    className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700"
                   >
                     <ExternalLink className="mr-2 h-4 w-4" />
                     Live Demo
                   </Button>
-                </div>
+                </a>
               </CardContent>
             </Card>
           ))}
         </div>
       </div>
     </section>
-  )
+  );
 }

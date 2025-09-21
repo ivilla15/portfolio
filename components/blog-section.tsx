@@ -1,44 +1,67 @@
-import { Card, CardContent } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import { Button } from "@/components/ui/button"
-import { Calendar, Clock, ArrowRight, TrendingUp } from "lucide-react"
+import { Card, CardContent } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { Calendar, Clock, ArrowRight, TrendingUp } from "lucide-react";
 
 export function BlogSection() {
   const blogPosts = [
     {
-      title: "Building Scalable APIs with Node.js and TypeScript",
+      title: "How I Built My Portfolio with Next.js, Tailwind, and shadcn/ui",
       excerpt:
-        "Learn how to create robust, type-safe APIs that can handle high traffic loads while maintaining code quality and developer experience. We'll dive deep into architecture patterns, error handling, and performance optimization.",
-      date: "Jan 14, 2024",
-      readTime: "8 min read",
-      tags: ["Node.js", "TypeScript", "API Design"],
+        "A breakdown of how I created my personal site using modern tools like Next.js 15, Tailwind CSS, and shadcn/ui. From design system to deployment on Vercel—everything I learned building it from scratch.",
+      date: "Sep 20, 2025",
+      readTime: "7 min read",
+      tags: ["Next.js", "Tailwind CSS", "shadcn/ui", "Portfolio"],
       image: "/placeholder.svg?height=300&width=400",
       featured: true,
-      category: "Backend Development",
-    },
-    {
-      title: "AWS Lambda Best Practices for Production",
-      excerpt:
-        "Discover essential patterns and practices for deploying serverless functions at scale, including error handling, monitoring, and cost optimization strategies that actually work in the real world.",
-      date: "Jan 7, 2024",
-      readTime: "12 min read",
-      tags: ["AWS", "Serverless", "Lambda"],
-      image: "/placeholder.svg?height=200&width=300",
-      featured: false,
-      category: "Cloud Architecture",
-    },
-    {
-      title: "React Performance Optimization Techniques",
-      excerpt:
-        "Explore advanced techniques to optimize React applications, from code splitting to memoization and virtual scrolling. Real-world examples included.",
-      date: "Dec 21, 2023",
-      readTime: "10 min read",
-      tags: ["React", "Performance", "Optimization"],
-      image: "/placeholder.svg?height=200&width=300",
-      featured: false,
       category: "Frontend Development",
     },
-  ]
+    {
+      title: "Lessons from My First Frontend Developer Job",
+      excerpt:
+        "Working as a Junior Web Developer Associate at Cal State LA U-SU taught me more than just code. From accessibility to teamwork, here are the key lessons that helped me grow professionally.",
+      date: "Sep 10, 2025",
+      readTime: "6 min read",
+      tags: ["Career", "Accessibility", "Frontend", "Dev Experience"],
+      image: "/placeholder.svg?height=200&width=300",
+      featured: false,
+      category: "Career Growth",
+    },
+    {
+      title: "Building an Accessible Tab System Without a Library",
+      excerpt:
+        "How I built a fully keyboard-accessible tab interface using just React, TypeScript, and custom hooks—no external libraries. Bonus: how I tested with screen readers and WAVE.",
+      date: "Aug 28, 2025",
+      readTime: "9 min read",
+      tags: ["Accessibility", "React", "Components", "UX"],
+      image: "/placeholder.svg?height=200&width=300",
+      featured: false,
+      category: "UI/UX",
+    },
+    {
+      title: "Preparing for the AWS SAA-C03 as a CS Student",
+      excerpt:
+        "Studying for the AWS Solutions Architect – Associate certification while in school? Here's how I’m approaching it with free tools, Udemy courses, and project-based practice.",
+      date: "Aug 10, 2025",
+      readTime: "8 min read",
+      tags: ["AWS", "Certification", "Cloud", "Study Plan"],
+      image: "/placeholder.svg?height=200&width=300",
+      featured: false,
+      category: "Certifications",
+    },
+    {
+      title:
+        "GMiS 2025: What I Learned from Attending as a Reimbursement Winner",
+      excerpt:
+        "From resume reviews to recruiter convos, here’s what it was like to attend GMiS 2025 in San Diego—and how I made the most of the experience as a CS student.",
+      date: "Oct 15, 2025",
+      readTime: "5 min read",
+      tags: ["GMiS", "Conference", "Networking", "Latino in Tech"],
+      image: "/placeholder.svg?height=200&width=300",
+      featured: false,
+      category: "Events & Conferences",
+    },
+  ];
 
   return (
     <section id="blog" className="py-32 px-4 relative">
@@ -48,7 +71,9 @@ export function BlogSection() {
           <h2 className="text-5xl font-bold mt-4 mb-6">
             Latest <span className="gradient-text">Thoughts</span>
           </h2>
-          <p className="text-xl text-muted-foreground">Sharing knowledge, one post at a time</p>
+          <p className="text-xl text-muted-foreground">
+            Sharing knowledge, one post at a time
+          </p>
         </div>
 
         {/* Magazine-style layout */}
@@ -80,7 +105,10 @@ export function BlogSection() {
 
                     {/* Category */}
                     <div className="absolute top-6 right-6">
-                      <Badge variant="outline" className="bg-white/10 backdrop-blur-sm border-white/20 text-white">
+                      <Badge
+                        variant="outline"
+                        className="bg-white/10 backdrop-blur-sm border-white/20 text-white"
+                      >
                         {post.category}
                       </Badge>
                     </div>
@@ -108,7 +136,9 @@ export function BlogSection() {
                 </div>
 
                 <CardContent className="p-8 space-y-6">
-                  <p className="text-muted-foreground leading-relaxed text-lg">{post.excerpt}</p>
+                  <p className="text-muted-foreground leading-relaxed text-lg">
+                    {post.excerpt}
+                  </p>
 
                   <div className="flex flex-wrap gap-2">
                     {post.tags.map((tag) => (
@@ -122,7 +152,10 @@ export function BlogSection() {
                     ))}
                   </div>
 
-                  <Button variant="ghost" className="group/btn p-0 h-auto text-base font-medium hover:bg-transparent">
+                  <Button
+                    variant="ghost"
+                    className="group/btn p-0 h-auto text-base font-medium hover:bg-transparent"
+                  >
                     Read Full Article
                     <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover/btn:translate-x-1" />
                   </Button>
@@ -161,7 +194,9 @@ export function BlogSection() {
                           {post.title}
                         </h3>
 
-                        <p className="text-muted-foreground text-sm leading-relaxed line-clamp-2">{post.excerpt}</p>
+                        <p className="text-muted-foreground text-sm leading-relaxed line-clamp-2">
+                          {post.excerpt}
+                        </p>
 
                         <div className="flex items-center justify-between text-xs text-muted-foreground">
                           <div className="flex items-center space-x-3">
@@ -200,5 +235,5 @@ export function BlogSection() {
         </div>
       </div>
     </section>
-  )
+  );
 }

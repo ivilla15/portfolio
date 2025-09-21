@@ -1,48 +1,48 @@
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Book, Code2, Rocket, Shield, ShieldCheck } from "lucide-react";
+import { BadgeCheck, Book, Rocket, ShieldCheck } from "lucide-react";
 
 export function CertificationsSection() {
   const certifications = [
     {
-      title: "AWS Certified Cloud Practitioner",
+      title: "AWS Certified Solutions Architect – Associate (SAA-C03)",
       issuer: "Amazon Web Services",
-      year: "2024",
+      year: "2025",
       status: "In Progress",
-      icon: Shield,
+      icon: ShieldCheck, // Or use BadgeCheck
       color: "from-orange-500 to-yellow-500",
       description:
-        "Studying foundational AWS services, billing, architecture, and security for certification.",
+        "Studying core AWS services, architecture patterns, IAM, EC2, S3, and Lambda with hands-on projects and exam prep resources.",
     },
     {
-      title: "Certified Full Stack Developer Curriculum",
-      issuer: "Self-Paced Curriculum",
-      year: "2024",
-      status: "In Progress",
+      title: "Self-Paced Full-Stack Developer Curriculum",
+      issuer: "Personal Project",
+      year: "2025",
+      status: "Ongoing",
       icon: Rocket,
       color: "from-teal-500 to-cyan-600",
       description:
-        "Hands-on learning focused on React, TypeScript, Next.js, Node.js, and deployment pipelines.",
+        "Building real-world projects using React, TypeScript, Next.js, Node.js, shadcn/ui, and deploying to Vercel. Includes accessibility, performance, and mobile-first design best practices.",
+    },
+    {
+      title: "Interview Prep Tracker (DSA + System Design)",
+      issuer: "Personal Project",
+      year: "2025",
+      status: "Launching",
+      icon: Book,
+      color: "from-indigo-500 to-fuchsia-600",
+      description:
+        "Structured study plan for technical interviews covering data structures, algorithms, mock interviews, and behavioral prep with GitHub tracking.",
     },
     {
       title: "AWS Certified Developer – Associate",
       issuer: "Amazon Web Services",
-      year: "2025",
+      year: "2026",
       status: "Planned",
-      icon: ShieldCheck, // Or BadgeCheck, depending on your icon set
+      icon: BadgeCheck, // Or ShieldCheck
       color: "from-yellow-500 to-orange-600",
       description:
-        "Next step after Cloud Practitioner: mastering AWS development tools and serverless architecture.",
-    },
-    {
-      title: "Full-Stack Developer Program",
-      issuer: "CodePath",
-      year: "2025",
-      status: "Planned",
-      icon: Book, // Or Book, GraduationCap, Code2
-      color: "from-indigo-500 to-fuchsia-600",
-      description:
-        "Comprehensive hands-on curriculum covering backend, frontend, and deployment with real-world projects.",
+        "Planned certification to deepen AWS developer tooling expertise after SAA-C03, with focus on Lambda, DynamoDB, and CI/CD workflows.",
     },
   ];
 
@@ -105,7 +105,7 @@ export function CertificationsSection() {
 
                   <div className="flex justify-between items-center pt-2">
                     <span className="text-sm text-muted-foreground">
-                      Earned {cert.year}
+                      {cert.year}
                     </span>
                     <span className="section-number">0{index + 1}</span>
                   </div>

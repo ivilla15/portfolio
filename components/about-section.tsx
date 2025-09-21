@@ -30,13 +30,14 @@ export function AboutSection() {
                   <h3 className="text-xl font-semibold">The Developer</h3>
                 </div>
                 <p className="text-muted-foreground leading-relaxed">
-                  I'm a Computer Science major and Web Developer, where I bring
-                  accessible, high-performance sites to life using React,
-                  TypeScript, and styled-components. I specialize in modern tech
-                  like Next.js, Tailwind, and shadcn/ui—always with a strong
-                  focus on accessibility, responsiveness, and performance.
-                  Whether I&apos;m improving Wave scores or building reusable
-                  components, I write code with real users in mind.
+                  I&apos;m a Computer Science major at Cal State LA and a Junior
+                  Web Developer Associate for the University&ndash;Student
+                  Union. I build accessible, responsive websites using React,
+                  TypeScript, and styled&ndash;components&mdash;focused on
+                  performance, usability, and scalability. My stack includes
+                  Next.js, Tailwind CSS, and shadcn/ui, and I specialize in
+                  building reusable components, improving accessibility scores,
+                  and solving real frontend challenges.
                 </p>
               </CardContent>
             </Card>
@@ -50,12 +51,12 @@ export function AboutSection() {
                   <h3 className="text-xl font-semibold">The Problem Solver</h3>
                 </div>
                 <p className="text-muted-foreground leading-relaxed">
-                  I don&apos;t just ship code, I solve problems that matter.
-                  From building inclusive components to fixing critical layout
-                  bugs with custom responsive styling, I thrive on turning
-                  ambiguity into clarity. I love working through constraints and
-                  collaborating with teams to deliver scalable, maintainable,
-                  and thoughtful solutions.
+                  I don&apos;t just ship features&mdash;I solve problems that
+                  matter. Whether I&apos;m debugging critical layout issues or
+                  designing inclusive components with custom responsive styling,
+                  I thrive in environments where clarity and impact come from
+                  navigating constraints. I enjoy collaborating with others to
+                  deliver maintainable, scalable solutions that users can trust.
                 </p>
               </CardContent>
             </Card>
@@ -69,14 +70,14 @@ export function AboutSection() {
                   <h3 className="text-xl font-semibold">The Human</h3>
                 </div>
                 <p className="text-muted-foreground leading-relaxed">
-                  Beyond the code, I&apos;m passionate about inclusive design,
-                  clean documentation, and helping others grow. I contribute to
-                  student-run tech initiatives, document reusable patterns, and
-                  constantly explore how AI tools like V0 and Copilot can
-                  enhance&mdash;not replace&mdash;creative development. I'm
-                  currently building my portfolio, prepping for AWS
-                  certifications, and working toward launching full&mdash;stack
-                  projects that reflect both skill and purpose.
+                  Outside the editor, I&apos;m passionate about inclusive
+                  design, clean documentation, and helping others grow. I
+                  contribute to student-led tech initiatives and constantly
+                  explore how AI tools like V0 and GitHub Copilot can
+                  enhance&mdash;never replace&mdash;creative development.
+                  I&apos;m currently preparing for the AWS Solutions Architect
+                  certification, building full&ndash;stack apps, and documenting
+                  it all in a portfolio that reflects both skill and purpose.
                 </p>
               </CardContent>
             </Card>

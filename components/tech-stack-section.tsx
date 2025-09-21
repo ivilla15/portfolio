@@ -91,6 +91,11 @@ export function TechStackSection() {
       category: "database",
       color: "from-fuchsia-500 to-fuchsia-700",
     },
+    {
+      name: "Supabase",
+      category: "database",
+      color: "from-lime-500 to-emerald-600",
+    },
   ];
 
   return (

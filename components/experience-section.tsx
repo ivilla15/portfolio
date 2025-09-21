@@ -13,7 +13,7 @@ import {
 export function ExperienceSection() {
   const experiences = [
     {
-      title: "Full-Stack Developer",
+      title: "Junior Web Developer Associate (Full-Stack)",
       company: "California State University Los Angeles Student Union",
       location: "Los Angeles, CA",
       period: "May 2025 - Present",
@@ -21,14 +21,16 @@ export function ExperienceSection() {
       icon: Code2,
       color: "from-blue-500 to-purple-600",
       responsibilities: [
-        "Developed and launched the WingspanLA website in under 3 weeks using React, styled-components, and Tailwind CSS, achieving a 100% error-free WAVE accessibility report on first release",
-        "Resolved all WAVE errors across the University-Student Union (U-SU) website, improving accessibility compliance site-wide for over 10,000 monthly users",
-        "Refactored static layouts into responsive, reusable components using shadcn/ui and custom theming, reducing duplicated CSS by 40%",
-        "Integrated V0 (AI design-to-code) into the dev workflow to accelerate early UI generation and reduce design-to-code turnaround time by over 50%",
-        "Led setup and enforcement of ESLint, Prettier, Husky, and lint-staged across the team's repos, improving code consistency and reducing reviewer feedback loops by 30%",
-        "Collaborated with cross-functional teams to implement updates and accessibility fixes across 10+ Cal State LA department pages using Git, Figma specs, and structured page audits",
-        "Performed manual and automated accessibility audits using WAVE and Lighthouse, resolving 60+ contrast, heading, and landmark issues in production environments",
-        "Provided hands-on guidance to student designers, introducing them to HTML/CSS and layout best practices to help them code and deploy their own static pages",
+        "Built and launched Student Union web pages—including U-Krew, Fraternity & Sorority Life, and Wingspan—using React, Next.js, TypeScript, styled-components, and Supabase.",
+        "Enhanced a platform serving approximately 100,000 users annually with SEO, image optimization, Google Analytics, and Vercel Analytics.",
+        "Delivered the Wingspan LA page in under 2 weeks, reaching hundreds of users.",
+        "Optimized performance and accessibility with 99% Lighthouse, 100% Vercel Speed Insights, and 0 WAVE errors via server-side rendering.",
+        "Created reusable React components, reducing CSS duplication by 30% and improving maintainability.",
+        "Led setup of ESLint, Prettier, Husky, and lint-staged across repos, improving code consistency and reducing review cycles by 30%.", // ✅ added from old version
+        "Performed manual and automated accessibility audits using WAVE and Lighthouse, resolving 60+ issues across production environments.", // ✅ added
+        "Collaborated in Agile sprints using Notion, Slack, and GitHub best practices (branching, PR reviews).",
+        "Provided hands-on guidance to student designers, introducing them to HTML/CSS and layout best practices to deploy static pages.", // ✅ added
+        "Contributed to discussions on secure REST API design and database CRUD features.",
       ],
     },
   ];
@@ -55,13 +57,19 @@ export function ExperienceSection() {
             Where code meets impact
           </p>
 
-          <Button
-            size="lg"
-            className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 transform hover:scale-105 transition-all duration-300"
+          <a
+            href="https://docs.google.com/document/d/14V33xczTaa3y4XikyRw5mQzBGU6ivXI5MWp6coXcffc/export?format=pdf"
+            target="_blank"
+            rel="noopener noreferrer"
           >
-            <Download className="mr-2 h-5 w-5" />
-            Download Resume
-          </Button>
+            <Button
+              size="lg"
+              className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 transform hover:scale-105 transition-all duration-300"
+            >
+              <Download className="mr-2 h-5 w-5" />
+              Download Resume
+            </Button>
+          </a>
         </div>
 
         {/* Timeline Layout */}
