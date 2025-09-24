@@ -1,14 +1,8 @@
+import { Section, Stagger } from "@/components/ui/section";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import {
-  Download,
-  MapPin,
-  Calendar,
-  Briefcase,
-  Code2,
-  Rocket,
-} from "lucide-react";
+import { Download, MapPin, Calendar, Briefcase, Code2 } from "lucide-react";
 
 export function ExperienceSection() {
   const experiences = [
@@ -26,143 +20,151 @@ export function ExperienceSection() {
         "Delivered the Wingspan LA page in under 2 weeks, reaching hundreds of users.",
         "Optimized performance and accessibility with 99% Lighthouse, 100% Vercel Speed Insights, and 0 WAVE errors via server-side rendering.",
         "Created reusable React components, reducing CSS duplication by 30% and improving maintainability.",
-        "Led setup of ESLint, Prettier, Husky, and lint-staged across repos, improving code consistency and reducing review cycles by 30%.", // ✅ added from old version
-        "Performed manual and automated accessibility audits using WAVE and Lighthouse, resolving 60+ issues across production environments.", // ✅ added
+        "Led setup of ESLint, Prettier, Husky, and lint-staged across repos, improving code consistency and reducing review cycles by 30%.",
+        "Performed manual and automated accessibility audits using WAVE and Lighthouse, resolving 60+ issues across production environments.",
         "Collaborated in Agile sprints using Notion, Slack, and GitHub best practices (branching, PR reviews).",
-        "Provided hands-on guidance to student designers, introducing them to HTML/CSS and layout best practices to deploy static pages.", // ✅ added
+        "Provided hands-on guidance to student designers, introducing them to HTML/CSS and layout best practices to deploy static pages.",
         "Contributed to discussions on secure REST API design and database CRUD features.",
       ],
     },
   ];
 
   return (
-    <section id="experience" className="py-32 px-4 relative overflow-hidden">
-      {/* Background elements */}
-      <div
-        className="floating-shape w-40 h-40 top-20 right-10 animate-float"
-        style={{ animationDelay: "1s" }}
-      />
-      <div
-        className="floating-shape w-32 h-32 bottom-32 left-20 animate-float"
-        style={{ animationDelay: "3s" }}
-      />
-
+    <Section
+      id="experience"
+      direction="up"
+      className="min-h-[100svh] scroll-mt-32 overflow-hidden"
+      contentClassName="px-4 py-24 md:py-28"
+      background={
+        <>
+          {/* centered vignette with feathered edges */}
+          <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 h-[62vh] bg-[radial-gradient(60%_50%_at_50%_50%,rgba(99,102,241,.22)_0%,rgba(99,102,241,.06)_70%,transparent_100%)]" />
+          {/* side glows */}
+          <div className="absolute left-[-12%] top-[22%] w-[44vw] h-[44vw] rounded-full blur-3xl opacity-25 bg-gradient-to-tr from-purple-500/45 via-fuchsia-500/35 to-pink-500/30" />
+          <div className="absolute right-[-10%] bottom-[18%] w-[46vw] h-[46vw] rounded-full blur-3xl opacity-20 bg-gradient-to-br from-cyan-400/40 via-sky-500/35 to-emerald-400/30" />
+        </>
+      }
+    >
       <div className="max-w-5xl mx-auto">
-        <div className="text-center mb-20">
-          <span className="section-number">// 04</span>
-          <h2 className="text-5xl font-bold mt-4 mb-6">
-            Professional <span className="gradient-text">Journey</span>
-          </h2>
-          <p className="text-xl text-muted-foreground mb-12">
-            Where code meets impact
-          </p>
+        <Stagger step={100}>
+          {/* Heading */}
+          <div className="text-center mb-20">
+            <h2 className="text-5xl font-bold mt-4 mb-6">
+              Professional <span className="gradient-cta-text">Journey</span>
+            </h2>
+            <p className="text-[1.05rem] text-slate-200/90 font-medium mb-12 max-w-2xl mx-auto leading-relaxed">
+              Where code meets impact
+            </p>
 
-          <a
-            href="https://docs.google.com/document/d/14V33xczTaa3y4XikyRw5mQzBGU6ivXI5MWp6coXcffc/export?format=pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Button
-              size="lg"
-              className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 transform hover:scale-105 transition-all duration-300"
+            <a
+              href="https://docs.google.com/document/d/14V33xczTaa3y4XikyRw5mQzBGU6ivXI5MWp6coXcffc/export?format=pdf"
+              target="_blank"
+              rel="noopener noreferrer"
             >
-              <Download className="mr-2 h-5 w-5" />
-              Download Resume
-            </Button>
-          </a>
-        </div>
+              <Button
+                size="lg"
+                className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 transform hover:scale-105 transition-all duration-300"
+              >
+                <Download className="mr-2 h-5 w-5" />
+                Download Resume
+              </Button>
+            </a>
+          </div>
 
-        {/* Timeline Layout */}
-        <div className="relative">
-          {/* Vertical line */}
-          <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-blue-500 via-purple-500 to-green-500 opacity-30" />
+          {/* Timeline Layout */}
+          <div className="relative">
+            {/* Vertical line */}
+            <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-blue-500 via-purple-500 to-green-500 opacity-30" />
 
-          <div className="space-y-16">
-            {experiences.map((exp, index) => {
-              const IconComponent = exp.icon;
-              return (
-                <div
-                  key={index}
-                  className="relative flex items-start space-x-8 group"
-                >
-                  {/* Timeline dot */}
-                  <div className="relative z-10 flex-shrink-0">
-                    <div
-                      className={`w-16 h-16 bg-gradient-to-br ${exp.color} rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300`}
-                    >
-                      <IconComponent className="h-8 w-8 text-white" />
-                    </div>
-                    {/* Connecting line to card */}
-                    <div className="absolute top-8 left-16 w-8 h-0.5 bg-gradient-to-r from-muted-foreground/30 to-transparent" />
-                  </div>
-
-                  {/* Experience card */}
-                  <Card className="creative-card flex-1 border-0 bg-gradient-to-br from-background to-muted/10 group-hover:shadow-2xl transition-all duration-500">
-                    <CardContent className="p-8">
-                      <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-6">
-                        <div className="space-y-4">
-                          <div className="space-y-2">
-                            <div className="flex items-center space-x-3">
-                              <h3 className="text-2xl font-bold group-hover:gradient-text transition-all duration-300">
-                                {exp.title}
-                              </h3>
-                              <Badge
-                                className={`bg-gradient-to-r ${exp.color} text-white border-0`}
-                              >
-                                {exp.type}
-                              </Badge>
-                            </div>
-                            <p className="text-xl text-muted-foreground font-medium">
-                              {exp.company}
-                            </p>
-                          </div>
-
-                          <div className="flex flex-wrap gap-4 text-sm text-muted-foreground">
-                            <div className="flex items-center">
-                              <MapPin className="mr-2 h-4 w-4" />
-                              {exp.location}
-                            </div>
-                            <div className="flex items-center">
-                              <Calendar className="mr-2 h-4 w-4" />
-                              {exp.period}
-                            </div>
-                          </div>
+            <div className="space-y-16">
+              {experiences.map((exp, index) => {
+                const IconComponent = exp.icon;
+                return (
+                  <Stagger key={exp.title} step={0} start={index * 120}>
+                    <div className="relative flex items-start space-x-8 group">
+                      {/* Timeline dot */}
+                      <div className="relative z-10 flex-shrink-0">
+                        <div
+                          className={`w-16 h-16 bg-gradient-to-br ${exp.color} rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300`}
+                        >
+                          <IconComponent className="h-8 w-8 text-white" />
                         </div>
-
-                        <div className="text-right">
-                          <span className="section-number text-2xl">
-                            0{index + 1}
-                          </span>
-                        </div>
+                        {/* Connecting line to card */}
+                        <div className="absolute top-8 left-16 w-8 h-0.5 bg-gradient-to-r from-muted-foreground/30 to-transparent" />
                       </div>
 
-                      <div className="mt-8">
-                        <h4 className="text-lg font-semibold mb-4 flex items-center">
-                          <Briefcase className="mr-2 h-5 w-5" />
-                          Key Achievements
-                        </h4>
-                        <div className="grid gap-3">
-                          {exp.responsibilities.map((responsibility, idx) => (
-                            <div
-                              key={idx}
-                              className="flex items-start space-x-3 group/item"
-                            >
-                              <div className="w-2 h-2 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full mt-2 flex-shrink-0 group-hover/item:scale-150 transition-transform duration-200" />
-                              <span className="text-muted-foreground leading-relaxed group-hover/item:text-foreground transition-colors duration-200">
-                                {responsibility}
+                      {/* Experience card */}
+                      <Card className="creative-card flex-1 border-0 bg-gradient-to-br from-background to-muted/10 group-hover:shadow-2xl transition-all duration-500">
+                        <CardContent className="p-8">
+                          <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-6">
+                            <div className="space-y-4">
+                              <div className="space-y-2">
+                                <div className="flex items-center flex-wrap gap-3">
+                                  <h3 className="text-2xl font-bold group-hover:gradient-text transition-all duration-300">
+                                    {exp.title}
+                                  </h3>
+                                  <Badge
+                                    className={`bg-gradient-to-r ${exp.color} text-white border-0`}
+                                  >
+                                    {exp.type}
+                                  </Badge>
+                                </div>
+                                <p className="text-[1.05rem] text-slate-200/90 font-medium leading-relaxed">
+                                  {exp.company}
+                                </p>
+                              </div>
+
+                              <div className="flex flex-wrap gap-4 text-sm text-slate-200/80">
+                                <div className="flex items-center">
+                                  <MapPin className="mr-2 h-4 w-4" />
+                                  {exp.location}
+                                </div>
+                                <div className="flex items-center">
+                                  <Calendar className="mr-2 h-4 w-4" />
+                                  {exp.period}
+                                </div>
+                              </div>
+                            </div>
+
+                            <div className="text-right">
+                              <span className="section-number text-2xl">
+                                0{index + 1}
                               </span>
                             </div>
-                          ))}
-                        </div>
-                      </div>
-                    </CardContent>
-                  </Card>
-                </div>
-              );
-            })}
+                          </div>
+
+                          <div className="mt-8">
+                            <h4 className="text-lg font-semibold mb-4 flex items-center">
+                              <Briefcase className="mr-2 h-5 w-5" />
+                              Key Achievements
+                            </h4>
+
+                            <div className="grid gap-3">
+                              {exp.responsibilities.map(
+                                (responsibility, idx) => (
+                                  <div
+                                    key={idx}
+                                    className="flex items-start space-x-3 group/item"
+                                  >
+                                    <div className="w-2 h-2 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full mt-2 flex-shrink-0 group-hover/item:scale-150 transition-transform duration-200" />
+                                    <span className="text-[1.05rem] text-slate-200/90 leading-relaxed group-hover/item:text-foreground transition-colors duration-200">
+                                      {responsibility}
+                                    </span>
+                                  </div>
+                                )
+                              )}
+                            </div>
+                          </div>
+                        </CardContent>
+                      </Card>
+                    </div>
+                  </Stagger>
+                );
+              })}
+            </div>
           </div>
-        </div>
+        </Stagger>
       </div>
-    </section>
+    </Section>
   );
 }

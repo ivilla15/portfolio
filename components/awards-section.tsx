@@ -1,3 +1,4 @@
+import { Section, Stagger } from "@/components/ui/section";
 import { Card, CardContent } from "@/components/ui/card";
 
 export function AwardsSection() {
@@ -58,97 +59,106 @@ export function AwardsSection() {
   ];
 
   return (
-    <section className="py-32 px-4">
+    <Section
+      id="awards"
+      direction="up"
+      className="min-h-[100svh] scroll-mt-32 overflow-hidden"
+      contentClassName="px-4 py-24 md:py-28"
+      background={
+        <>
+          {/* centered vignette (feathered) */}
+          <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 h-[56vh] bg-[radial-gradient(60%_50%_at_50%_50%,rgba(99,102,241,.22)_0%,rgba(99,102,241,.06)_70%,transparent_100%)]" />
+          {/* side glows */}
+          <div className="absolute left-[-12%] top-[22%] w-[42vw] h-[42vw] rounded-full blur-3xl opacity-25 bg-gradient-to-tr from-purple-500/45 via-fuchsia-500/35 to-pink-500/28" />
+          <div className="absolute right-[-10%] bottom-[18%] w-[44vw] h-[44vw] rounded-full blur-3xl opacity-20 bg-gradient-to-br from-cyan-400/38 via-sky-500/30 to-emerald-400/26" />
+        </>
+      }
+    >
       <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-20">
-          <span className="section-number">{/* RECOGNITION */}</span>
-          <h2 className="text-5xl font-bold mt-4 mb-6">
-            Awards & <span className="gradient-text">Achievements</span>
-          </h2>
-          <p className="text-xl text-muted-foreground">
-            Milestones that shaped my journey
-          </p>
-        </div>
+        <Stagger step={100}>
+          {/* Heading */}
+          <div className="text-center mb-20">
+            <h2 className="text-5xl font-bold mt-4 mb-6">
+              Awards & <span className="gradient-cta-text">Achievements</span>
+            </h2>
+            <p className="text-[1.05rem] text-slate-200/90 font-medium max-w-2xl mx-auto leading-relaxed">
+              Milestones that shaped my journey
+            </p>
+          </div>
 
-        {/* Badge-style grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {awards.map((award, index) => (
-            <Card
-              key={index}
-              className="creative-card border-0 bg-gradient-to-br from-background to-muted/10 overflow-hidden group hover:shadow-2xl transition-all duration-500"
-              style={{
-                animationDelay: `${index * 0.1}s`,
-                animation: "fadeInScale 0.6s ease-out forwards",
-              }}
-            >
-              <CardContent className="p-6 relative">
-                {/* Background gradient */}
-                <div
-                  className={`absolute inset-0 bg-gradient-to-br ${award.color} opacity-5 group-hover:opacity-10 transition-opacity duration-300`}
-                />
-
-                <div className="relative space-y-4">
-                  {/* Emoji and year */}
-                  <div className="flex items-center justify-between">
-                    <div className="text-4xl">{award.emoji}</div>
+          {/* Badge-style grid */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {awards.map((award, index) => (
+              <Stagger key={award.title} step={0} start={index * 80}>
+                <Card className="creative-card border-0 bg-gradient-to-br from-background to-muted/10 overflow-hidden group">
+                  <CardContent className="p-6 relative">
+                    {/* subtle card tint */}
                     <div
-                      className={`px-3 py-1 rounded-full bg-gradient-to-r ${award.color} text-white text-sm font-medium`}
-                    >
-                      {award.year}
-                    </div>
-                  </div>
-
-                  {/* Title and organization */}
-                  <div className="space-y-2">
-                    <h3 className="text-xl font-bold group-hover:gradient-text transition-all duration-300">
-                      {award.title}
-                    </h3>
-                    <p className="text-muted-foreground font-medium">
-                      {award.organization}
-                    </p>
-                  </div>
-
-                  {/* Description */}
-                  <p className="text-sm text-muted-foreground leading-relaxed">
-                    {award.description}
-                  </p>
-
-                  {/* Decorative element */}
-                  <div className="absolute top-4 right-4 opacity-10 group-hover:opacity-20 transition-opacity duration-300">
-                    <div
-                      className={`w-8 h-8 bg-gradient-to-br ${award.color} rounded-full`}
+                      className={`absolute inset-0 bg-gradient-to-br ${award.color} opacity-5 group-hover:opacity-10 transition-opacity duration-300`}
                     />
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
 
-        {/* Fun stats */}
-        <div className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-          <div className="space-y-2">
-            <div className="text-3xl font-bold gradient-text">5+</div>
-            <p className="text-sm text-muted-foreground">
-              Academic & Merit Awards
-            </p>
+                    <div className="relative space-y-4">
+                      {/* Emoji and year */}
+                      <div className="flex items-center justify-between">
+                        <div className="text-4xl">{award.emoji}</div>
+                        <div
+                          className={`px-3 py-1 rounded-full bg-gradient-to-r ${award.color} text-white text-sm font-medium`}
+                        >
+                          {award.year}
+                        </div>
+                      </div>
+
+                      {/* Title and org */}
+                      <div className="space-y-2">
+                        <h3 className="text-xl font-bold group-hover:gradient-text transition-all duration-300">
+                          {award.title}
+                        </h3>
+                        <p className="text-[1.05rem] text-slate-200/90 font-medium leading-relaxed">
+                          {award.organization}
+                        </p>
+                      </div>
+
+                      {/* Description */}
+                      <p className="text-[0.95rem] text-slate-200/85 leading-relaxed">
+                        {award.description}
+                      </p>
+
+                      {/* Decorative dot */}
+                      <div className="absolute top-4 right-4 opacity-10 group-hover:opacity-20 transition-opacity duration-300">
+                        <div
+                          className={`w-8 h-8 bg-gradient-to-br ${award.color} rounded-full`}
+                        />
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              </Stagger>
+            ))}
           </div>
-          <div className="space-y-2">
-            <div className="text-3xl font-bold gradient-text">10+</div>
-            <p className="text-sm text-muted-foreground">Web Projects Built</p>
+
+          {/* Fun stats */}
+          <div className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+            <div className="space-y-2">
+              <div className="text-3xl font-bold gradient-cta-text">5+</div>
+              <p className="text-sm text-slate-200/80">
+                Academic & Merit Awards
+              </p>
+            </div>
+            <div className="space-y-2">
+              <div className="text-3xl font-bold gradient-cta-text">10+</div>
+              <p className="text-sm text-slate-200/80">Web Projects Built</p>
+            </div>
+            <div className="space-y-2">
+              <div className="text-3xl font-bold gradient-cta-text">4+</div>
+              <p className="text-sm text-slate-200/80">Student Teams Led</p>
+            </div>
+            <div className="space-y-2">
+              <div className="text-3xl font-bold gradient-cta-text">5+</div>
+              <p className="text-sm text-slate-200/80">Talks & Presentations</p>
+            </div>
           </div>
-          <div className="space-y-2">
-            <div className="text-3xl font-bold gradient-text">4+</div>
-            <p className="text-sm text-muted-foreground">Student Teams Led</p>
-          </div>
-          <div className="space-y-2">
-            <div className="text-3xl font-bold gradient-text">5+</div>
-            <p className="text-sm text-muted-foreground">
-              Talks & Presentations
-            </p>
-          </div>
-        </div>
+        </Stagger>
       </div>
-    </section>
+    </Section>
   );
 }

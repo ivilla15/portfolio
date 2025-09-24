@@ -24,7 +24,7 @@ export default function Home() {
         <FeaturedProjectsSection />
         <CertificationsSection />
         <ExperienceSection />
-        <BlogSection />
+        {/* <BlogSection /> */}
         <ContactSection />
         <OrganizationsSection />
         <AwardsSection />
