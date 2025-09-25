@@ -1,74 +1,67 @@
-// app/components/ui/reveal.tsx
-"use client";
-import React from "react";
-import { useInView } from "@/hooks/use-in-view";
-
-type Dir = "up" | "down" | "left" | "right" | "none";
+// components/ui/reveal.tsx (relevant idea)
+import React, { useEffect, useRef, useState } from "react";
 
 export function Reveal({
-  as: Tag = "div",
-  children,
-  direction = "up",
-  delay = 0,
-  duration = 600,
   className = "",
+  children,
+  /* ...your other props... */
+  delay = 0,
+  direction = "up",
   once = true,
-  margin = "-15% 0px -15% 0px",
-  threshold = 0.1,
-  exitDirection, // optional: different exit motion
-}: {
-  as?: any;
-  children: React.ReactNode;
-  direction?: Dir;
-  delay?: number;
-  duration?: number;
-  className?: string;
-  once?: boolean;
-  margin?: string;
-  threshold?: number;
-  exitDirection?: Dir;
-}) {
-  const { ref, inView } = useInView<HTMLDivElement>({
-    once,
-    margin,
-    threshold,
-  });
+  margin,
+  threshold,
+}: any) {
+  const ref = useRef<HTMLDivElement>(null);
+  const [inView, setInView] = useState(false);
+  const [tempWC, setTempWC] = useState(false);
 
-  const distance = 40; // px
-  const map = (dir: Dir) => {
-    switch (dir) {
-      case "up":
-        return `translateY(${distance}px)`; // start below, move up
-      case "down":
-        return `translateY(-${distance}px)`; // start above, move down
-      case "left":
-        return `translateX(-${distance}px)`; // start left, move right
-      case "right":
-        return `translateX(${distance}px)`; // start right, move left  ✅ FIXED
-      default:
-        return "none";
-    }
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+
+    const io = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setInView(true);
+          setTempWC(true); // ✅ turn on will-change while animating
+          const t = setTimeout(() => {
+            // clear after animation finishes
+            setTempWC(false);
+          }, 600 + delay); // match your animation duration + delay
+          return () => clearTimeout(t);
+        } else if (!once) {
+          setInView(false);
+        }
+      },
+      { rootMargin: margin, threshold }
+    );
+
+    io.observe(el);
+    return () => io.disconnect();
+  }, [delay, once, margin, threshold]);
+
+  const dirMap: Record<string, string> = {
+    up: "translate-y-6",
+    down: "-translate-y-6",
+    left: "translate-x-6",
+    right: "-translate-x-6",
+    none: "",
   };
 
-  const enterTranslate = "none";
-  const exitTranslate = map(exitDirection ?? direction);
-
   return (
-    <Tag
+    <div
       ref={ref}
-      className={className}
-      style={{
-        transitionProperty: "opacity, transform, filter",
-        transitionTimingFunction: "cubic-bezier(.22,.61,.36,1)",
-        transitionDuration: `${duration}ms`,
-        transitionDelay: `${delay}ms`,
-        opacity: inView ? 1 : 0,
-        transform: inView ? enterTranslate : exitTranslate,
-        filter: inView ? "blur(0)" : "blur(4px)",
-        willChange: "transform, opacity, filter",
-      }}
+      // ✅ will-change only while animating; otherwise 'auto'
+      style={{ willChange: tempWC ? "transform, opacity" : "auto" }}
+      className={[
+        className,
+        "transition duration-500 ease-out",
+        inView
+          ? "opacity-100 translate-x-0 translate-y-0"
+          : `opacity-0 ${dirMap[direction]}`,
+      ].join(" ")}
     >
       {children}
-    </Tag>
+    </div>
   );
 }

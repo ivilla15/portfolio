@@ -7,10 +7,10 @@ type Dir = "up" | "down" | "left" | "right" | "none";
 
 type SectionProps = {
   id?: string;
-  className?: string; // min-h, scroll-mt, overflow, etc.
-  children: React.ReactNode; // content only
-  background?: React.ReactNode; // full-bleed background
-  contentClassName?: string; // where you add px/py
+  className?: string;
+  children: React.ReactNode;
+  background?: React.ReactNode;
+  contentClassName?: string;
   direction?: Dir;
   margin?: string;
   threshold?: number;
@@ -30,21 +30,21 @@ export function Section({
 }: SectionProps) {
   return (
     <section id={id} className={`relative p-0 ${className}`}>
-      {/* FULL-BLEED BACKGROUND (now z-0, not negative) */}
+      {/* Full-bleed background */}
       {background ? (
         <div className="absolute inset-0 z-0 pointer-events-none">
           {background}
         </div>
       ) : null}
 
-      {/* CONTENT (sit above bg) */}
+      {/* Content */}
       <div className="relative z-10 w-full [min-height:inherit]">
         <Reveal
           once={once}
           direction={direction}
           margin={margin}
           threshold={threshold}
-          className="block w-full h-full p-0 m-0 will-change-transform"
+          className="block w-full h-full p-0 m-0"
         >
           <div className={`block w-full h-full p-0 m-0 ${contentClassName}`}>
             {children}
@@ -69,7 +69,7 @@ export function Stagger({
   step = 120,
   start = 0,
   direction = "up",
-  once = true,
+  once = true, // by default, children animate only once
   itemClassName = "",
 }: StaggerProps) {
   const items = React.Children.toArray(children);

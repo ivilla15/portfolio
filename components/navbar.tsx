@@ -31,8 +31,10 @@ export function Navbar() {
             <div className="ml-10 flex items-baseline space-x-8">
               {navItems.map((item) => (
                 <a
+                  key={item.href} // ← add a stable key
                   href={item.href}
-                  className="group flex items-center space-x-2 text-slate-200/90 hover:gradient-cta-text font-medium transition-colors duration-300"
+                  className="group flex items-center space-x-2 text-base hover:gradient-cta-text font-medium transition-colors duration-300
+                   dark:text-base"
                 >
                   <span className="section-number">{item.number}</span>
                   <span className="text-sm">{item.name}</span>

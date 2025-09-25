@@ -53,13 +53,36 @@ export function CertificationsSection() {
       direction="up"
       className="min-h-[100svh] scroll-mt-32 overflow-hidden"
       contentClassName="px-4 py-24 md:py-28"
+      once={false}
       background={
         <>
-          {/* centered vignette with feathered edge */}
-          <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 h-[60vh] bg-[radial-gradient(60%_50%_at_50%_50%,rgba(147,51,234,.22)_0%,rgba(147,51,234,.06)_70%,transparent_100%)]" />
-          {/* side glows */}
-          <div className="absolute left-[-12%] top-[22%] w-[44vw] h-[44vw] rounded-full blur-3xl opacity-25 bg-gradient-to-tr from-purple-500/45 via-fuchsia-500/35 to-pink-500/30" />
-          <div className="absolute right-[-10%] bottom-[18%] w-[46vw] h-[46vw] rounded-full blur-3xl opacity-20 bg-gradient-to-br from-cyan-400/40 via-sky-500/32 to-emerald-400/28" />
+          {/* Center vignette */}
+          <div
+            className="absolute inset-x-0 top-1/2 -translate-y-1/2 h-[60vh]
+               bg-[radial-gradient(60%_50%_at_50%_50%,rgba(88,28,135,0.18),transparent_70%)]
+               dark:bg-[radial-gradient(60%_50%_at_50%_50%,rgba(88,28,135,0.33),transparent_70%)]"
+          />
+
+          {/* Left glow */}
+          <div
+            className="absolute left-[-10%] top-[25%] w-[46vw] h-[46vw] rounded-full blur-2xl opacity-20
+               bg-gradient-to-tr from-indigo-500/40 via-purple-500/28 to-fuchsia-500/24
+               dark:opacity-25 dark:from-indigo-500/50 dark:via-purple-500/40 dark:to-fuchsia-500/35"
+          />
+
+          {/* Right glow */}
+          <div
+            className="absolute right-[-12%] top-[10%] w-[50vw] h-[50vw] rounded-full blur-2xl opacity-20
+               bg-gradient-to-br from-cyan-400/28 via-sky-500/22 to-emerald-400/22
+               dark:opacity-20 dark:from-cyan-400/35 dark:via-sky-500/28 dark:to-emerald-400/28"
+          />
+
+          {/* Soft wash */}
+          <div
+            className="absolute inset-0
+               bg-[radial-gradient(720px_420px_at_50%_40%,rgba(147,51,234,0.14),transparent_65%),radial-gradient(640px_380px_at_18%_22%,rgba(99,102,241,0.12),transparent_60%),radial-gradient(600px_380px_at_82%_18%,rgba(168,85,247,0.10),transparent_60%)]
+               dark:bg-[radial-gradient(780px_460px_at_50%_40%,rgba(147,51,234,0.18),transparent_65%),radial-gradient(680px_420px_at_18%_22%,rgba(99,102,241,0.14),transparent_60%),radial-gradient(620px_420px_at_82%_18%,rgba(168,85,247,0.12),transparent_60%)]"
+          />
         </>
       }
     >
@@ -71,7 +94,7 @@ export function CertificationsSection() {
               Professional{" "}
               <span className="gradient-cta-text">Certifications</span>
             </h2>
-            <p className="text-[1.05rem] text-slate-200/90 font-medium max-w-2xl mx-auto leading-relaxed">
+            <p className="text-[1.05rem] text-base font-medium max-w-2xl mx-auto leading-relaxed">
               Validated expertise in cloud technologies
             </p>
           </div>
@@ -103,19 +126,17 @@ export function CertificationsSection() {
                         <h3 className="text-lg font-bold leading-tight group-hover:gradient-text transition-all duration-300">
                           {cert.title}
                         </h3>
-                        <p className="text-[1.05rem] text-slate-200/90 font-medium leading-relaxed">
+                        <p className="text-[1.05rem] text-base font-medium leading-relaxed">
                           {cert.issuer}
                         </p>
                       </div>
 
-                      <p className="text-[0.95rem] text-slate-200/85 leading-relaxed">
+                      <p className="text-[1rem] text-base leading-relaxed">
                         {cert.description}
                       </p>
 
                       <div className="flex justify-between items-center pt-2">
-                        <span className="text-sm text-slate-200/75">
-                          {cert.year}
-                        </span>
+                        <span className="text-sm text-base">{cert.year}</span>
                         <span className="section-number">0{index + 1}</span>
                       </div>
                     </CardContent>
