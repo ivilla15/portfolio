@@ -1,12 +1,20 @@
 import type React from "react";
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Space_Grotesk, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Analytics } from "@vercel/analytics/react";
 import { Toaster } from "@/components/ui/toaster";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
+const spaceGrotesk = Space_Grotesk({
+  subsets: ["latin"],
+  variable: "--font-heading",
+});
+const jetbrains = JetBrains_Mono({
+  subsets: ["latin"],
+  variable: "--font-mono",
+});
 
 export const metadata: Metadata = {
   title: "Isaiah Villalobos - Full-Stack Developer & Cloud Enthusiast",
@@ -21,8 +29,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body className={inter.className}>
+    <html
+      lang="en"
+      suppressHydrationWarning
+      className={`${inter.variable} ${spaceGrotesk.variable} ${jetbrains.variable}`}
+    >
+      <body className="font-sans">
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"
