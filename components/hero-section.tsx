@@ -11,39 +11,59 @@ export function HeroSection() {
       className="min-h-[100svh] scroll-mt-16 overflow-hidden"
       contentClassName="px-4 pt-20 pb-24"
       background={
-        <>
-          {/* spotlight behind name (lighter, smaller blur) */}
+        <section
+          id="home"
+          className="relative overflow-hidden"
+          style={{
+            height: "calc(100dvh - var(--nav-h,70px))", // full screen minus navbar
+          }}
+        >
+          {/* 1) Background wash */}
           <div
             aria-hidden
-            className="absolute inset-0 flex items-center justify-center -top-[25%]"
-          >
-            <div className="w-[850px] h-[600px] rounded-full blur-2xl opacity-20 bg-gradient-to-tr from-purple-600 via-fuchsia-500 to-cyan-400" />
-          </div>
-
-          {/* side glows (reduced size/blur/opacity) */}
-          <div
-            aria-hidden
-            className="absolute -left-24 top-[18%] w-[38vw] h-[38vw] rounded-full blur-lg opacity-20 bg-gradient-to-tr from-indigo-500/40 via-purple-500/28 to-fuchsia-500/24"
-          />
-          <div
-            aria-hidden
-            className="absolute -right-28 top-[10%] w-[40vw] h-[40vw] rounded-full blur-lg opacity-18 bg-gradient-to-br from-cyan-400/24 via-sky-500/20 to-emerald-400/20"
-          />
-
-          {/* soft wash (cheap multi-radial, theme-aware via default colors) */}
-          <div
-            aria-hidden
-            className="absolute inset-0"
+            className="absolute inset-0 z-0"
             style={{
               background:
                 "radial-gradient(700px 420px at 18% 12%, rgba(99,102,241,.16), transparent 60%), radial-gradient(680px 420px at 82% 22%, rgba(168,85,247,.14), transparent 55%)",
             }}
           />
 
-          {/* a *few* accent dots (motion-safe only) */}
+          {/* 2) Spotlight (centered glow behind name) */}
           <div
             aria-hidden
-            className="absolute inset-0 pointer-events-none"
+            className="absolute inset-0 z-10 flex items-center justify-center pointer-events-none"
+          >
+            <div
+              className="rounded-full"
+              style={{
+                width: "min(1100px, 88vw)",
+                height: "min(900px, 78vh)",
+                background:
+                  "radial-gradient(closest-side, rgba(168,85,247,.45), rgba(99,102,241,.28) 45%, transparent 70%)",
+                filter: "blur(40px)",
+                WebkitMaskImage:
+                  "radial-gradient(ellipse at center, black 58%, transparent 78%)",
+                maskImage:
+                  "radial-gradient(ellipse at center, black 58%, transparent 78%)",
+                opacity: 1,
+              }}
+            />
+          </div>
+
+          {/* 3) Side glows */}
+          <div
+            aria-hidden
+            className="absolute -left-24 top-[18%] z-10 w-[clamp(220px,38vw,520px)] h-[clamp(220px,38vw,520px)] rounded-full blur-lg opacity-20 bg-gradient-to-tr from-indigo-500/40 via-purple-500/28 to-fuchsia-500/24"
+          />
+          <div
+            aria-hidden
+            className="absolute -right-28 top-[10%] z-10 w-[clamp(220px,40vw,560px)] h-[clamp(220px,40vw,560px)] rounded-full blur-lg opacity-20 bg-gradient-to-br from-cyan-400/24 via-sky-500/20 to-emerald-400/20"
+          />
+
+          {/* 4) Accent dots */}
+          <div
+            aria-hidden
+            className="absolute inset-0 z-10 pointer-events-none"
             style={{ contain: "paint" }}
           >
             {/* top row */}
@@ -88,7 +108,7 @@ export function HeroSection() {
               />
             </div>
 
-            {/* tiny aura glows behind two dots (super cheap) */}
+            {/* tiny aura glows behind two dots */}
             <div className="absolute left-[8%] top-[10%] -z-10">
               <div className="w-16 h-16 rounded-full blur-lg opacity-25 bg-sky-400/60" />
             </div>
@@ -96,11 +116,11 @@ export function HeroSection() {
               <div className="w-16 h-16 rounded-full blur-lg opacity-25 bg-emerald-400/60" />
             </div>
           </div>
-        </>
+        </section>
       }
     >
       {/* CONTENT */}
-      <div className="relative z-10 max-w-6xl mx-auto text-center space-y-12">
+      <div className="relative z-10 max-w-6xl mx-auto flex flex-col items-center justify-center text-center space-y-12 h-[calc(100vh-70px)]">
         <div className="space-y-8">
           <div className="relative inline-block">
             <h1 className="text-6xl md:text-8xl lg:text-9xl font-black tracking-tight leading-none">

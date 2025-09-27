@@ -54,28 +54,14 @@
 }
 
 @layer base {
-  * {
-    @apply border-border;
-  }
   html {
-    @apply bg-background; /* base light/dark page color */
+    background: #080a14; /* dark base */
+  }
+  html:not(.dark) {
+    background: #f7f8fd; /* light base */
   }
   body {
-    @apply text-foreground font-sans;
-    background-color: transparent; /* ✅ allow Background.tsx gradients to show */
-  }
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    @apply font-heading;
-  }
-  code,
-  pre,
-  .section-number {
-    @apply font-mono;
+    background-color: transparent; /* let Section fade into this */
   }
 }
 

@@ -7,34 +7,8 @@ export function AboutSection() {
     <Section
       id="about"
       direction="up"
-      className="min-h-[100svh] scroll-mt-32 overflow-hidden"
+      className="[--radial-h:75%] min-h-[100svh] scroll-mt-32 overflow-hidden"
       contentClassName="px-4 py-24 md:py-28"
-      background={
-        <>
-          {/* Center vignette */}
-          <div
-            className="absolute inset-x-0 top-1/2 -translate-y-1/2 h-[60vh]
-               bg-[radial-gradient(60%_50%_at_50%_50%,rgba(88,28,135,0.18),transparent_70%)]
-               dark:bg-[radial-gradient(60%_50%_at_50%_50%,rgba(88,28,135,0.33),transparent_70%)]"
-          />
-
-          {/* Left glow */}
-          <div
-            className="absolute left-[-10%] top-[25%] w-[46vw] h-[46vw] rounded-full blur-xl opacity-20
-               bg-gradient-to-tr from-indigo-500/40 via-purple-500/28 to-fuchsia-500/24
-               dark:opacity-25 dark:from-indigo-500/50 dark:via-purple-500/40 dark:to-fuchsia-500/35"
-          />
-
-          {/* Right glow */}
-          <div
-            className="absolute right-[-12%] top-[10%] w-[50vw] h-[50vw] rounded-full blur-xl opacity-20
-               bg-gradient-to-br from-cyan-400/28 via-sky-500/22 to-emerald-400/22
-               dark:opacity-20 dark:from-cyan-400/35 dark:via-sky-500/28 dark:to-emerald-400/28"
-          />
-
-          {/* Soft wash */}
-        </>
-      }
     >
       <div className="max-w-6xl mx-auto">
         {/* Heading */}
