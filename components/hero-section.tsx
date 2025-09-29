@@ -153,14 +153,16 @@ export function HeroSection() {
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
           </a>
-          <Button
-            variant="outline"
-            size="lg"
-            className="text-base px-8 py-4 border-2 hover:bg-foreground hover:text-background transition-all duration-300 bg-transparent"
-          >
-            <Mail className="mr-2 h-5 w-5" />
-            Let&apos;s Connect
-          </Button>
+          <a href="#contact">
+            <Button
+              variant="outline"
+              size="lg"
+              className="text-base px-8 py-4 border-2 hover:bg-foreground hover:text-background transition-all duration-300 bg-transparent"
+            >
+              <Mail className="mr-2 h-5 w-5" />
+              Let&apos;s Connect
+            </Button>
+          </a>
         </div>
       </div>
 

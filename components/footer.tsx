@@ -1,4 +1,4 @@
-import { Heart, Github, Linkedin, Mail, Coffee } from "lucide-react";
+import { Heart, Github, Linkedin, Mail } from "lucide-react";
 
 export function Footer() {
   return (
@@ -32,28 +32,22 @@ export function Footer() {
           {/* Social links */}
           <div className="flex justify-center space-x-6">
             <a
-              href="#"
+              href="https://github.com/ivilla15"
               className="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center text-white hover:bg-white/20 transition-all duration-300 hover:scale-110"
             >
               <Github className="h-5 w-5" />
             </a>
             <a
-              href="#"
+              href="http://linkedin.com/in/isaiah-villalobos"
               className="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center text-white hover:bg-white/20 transition-all duration-300 hover:scale-110"
             >
               <Linkedin className="h-5 w-5" />
             </a>
             <a
-              href="#"
+              href="#contact"
               className="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center text-white hover:bg-white/20 transition-all duration-300 hover:scale-110"
             >
               <Mail className="h-5 w-5" />
-            </a>
-            <a
-              href="#"
-              className="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center text-white hover:bg-white/20 transition-all duration-300 hover:scale-110"
-            >
-              <Coffee className="h-5 w-5" />
             </a>
           </div>
 
