@@ -9,7 +9,7 @@ export function OrganizationsSection() {
       period: "2025 – Present",
       location: "Los Angeles, CA",
       description:
-        "Student-led organization focused on preparing future software engineers through collaborative interview prep, technical workshops, peer mentorship, and community-driven learning. A supportive space to build confidence in algorithms, systems, and career readiness.",
+        "Student led organization focused on preparing future software engineers through collaborative interview prep, technical workshops, peer mentorship, and community-driven learning. A supportive space to build confidence in algorithms, systems, and career readiness.",
       color: "from-blue-500 to-purple-600",
     },
     {
@@ -18,7 +18,7 @@ export function OrganizationsSection() {
       period: "2022 – Present",
       location: "Los Angeles, CA",
       description:
-        "Provides computer science knowledge and professional development resources to students at Cal State LA. Hosts workshops on emerging technologies, project-based learning, and career preparation. Also offers mentorship opportunities and fosters a tight-knit student community through events and outreach.",
+        "Provides computer science knowledge and professional development resources to students at Cal State LA. Hosts workshops on emerging technologies, project based learning, and career preparation. Also offers mentorship opportunities and fosters a tight knit student community through events and outreach.",
       color: "from-green-500 to-teal-600",
     },
   ];

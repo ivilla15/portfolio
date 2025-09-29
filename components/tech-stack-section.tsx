@@ -3,6 +3,7 @@ import { Badge } from "@/components/ui/badge";
 
 export function TechStackSection() {
   const technologies = [
+    // Frontend
     { name: "React", category: "frontend", color: "from-blue-500 to-cyan-500" },
     {
       name: "Next.js",
@@ -20,9 +21,9 @@ export function TechStackSection() {
       color: "from-yellow-400 to-yellow-600",
     },
     {
-      name: "Node.js",
-      category: "backend",
-      color: "from-green-500 to-green-700",
+      name: "Tailwind CSS",
+      category: "styling",
+      color: "from-cyan-400 to-blue-500",
     },
     {
       name: "styled-components",
@@ -30,69 +31,64 @@ export function TechStackSection() {
       color: "from-pink-500 to-red-500",
     },
     {
-      name: "Tailwind CSS",
-      category: "styling",
-      color: "from-cyan-400 to-blue-500",
-    },
-    {
       name: "shadcn/ui",
       category: "component-library",
       color: "from-green-600 to-pink-600",
     },
+
+    // Backend
     {
-      name: "V0",
-      category: "ai-tools",
-      color: "from-fuchsia-500 to-indigo-500",
-    },
-    {
-      name: "ESLint",
-      category: "tooling",
-      color: "from-emerald-500 to-emerald-700",
-    },
-    {
-      name: "Prettier",
-      category: "tooling",
-      color: "from-purple-400 to-pink-500",
-    },
-    { name: "Husky", category: "tooling", color: "from-rose-400 to-rose-600" },
-    {
-      name: "lint-staged",
-      category: "tooling",
-      color: "from-green-500 to-blue-600",
-    },
-    {
-      name: "Git",
-      category: "tooling",
-      color: "from-orange-500 to-orange-700",
-    },
-    { name: "AWS", category: "cloud", color: "from-orange-500 to-yellow-500" },
-    {
-      name: "Python",
-      category: "language",
-      color: "from-yellow-500 to-blue-600",
+      name: "Node.js",
+      category: "backend",
+      color: "from-green-500 to-green-700",
     },
     {
       name: "REST APIs",
-      category: "api",
+      category: "backend",
       color: "from-purple-500 to-indigo-600",
     },
-    { name: "Java", category: "language", color: "from-red-700 to-blue-700" },
     { name: "Spring", category: "backend", color: "from-cyan-700 to-teal-300" },
     {
       name: "Django",
       category: "backend",
       color: "from-indigo-500 to-pink-600",
     },
+
+    // Databases
     {
       name: "SQL",
       category: "database",
       color: "from-fuchsia-500 to-fuchsia-700",
     },
     {
+      name: "PostgreSQL",
+      category: "database",
+      color: "from-sky-600 to-blue-700",
+    },
+    {
       name: "Supabase",
       category: "database",
       color: "from-lime-500 to-emerald-600",
     },
+
+    // Cloud & Deployment
+    { name: "AWS", category: "cloud", color: "from-orange-500 to-yellow-500" },
+    { name: "Vercel", category: "cloud", color: "from-purple-400 to-pink-500" },
+
+    // Tooling
+    {
+      name: "Git",
+      category: "tooling",
+      color: "from-orange-500 to-orange-700",
+    },
+
+    // Languages
+    {
+      name: "Python",
+      category: "language",
+      color: "from-yellow-500 to-blue-600",
+    },
+    { name: "Java", category: "language", color: "from-red-700 to-blue-700" },
   ];
 
   return (

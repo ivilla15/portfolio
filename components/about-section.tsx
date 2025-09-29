@@ -2,12 +2,35 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Code, Coffee, Lightbulb } from "lucide-react";
 import { Section } from "@/components/ui/section";
 
+type GlowImageProps = {
+  src: string;
+  alt: string;
+};
+
+const GlowImage: React.FC<GlowImageProps> = ({ src, alt }) => (
+  <div className="relative w-80 h-80">
+    {/* soft aura */}
+    <div className="absolute -inset-10 -z-10">
+      <div className="w-80 h-80 mx-auto rounded-full blur-2xl opacity-30 bg-gradient-to-tr from-purple-600 via-fuchsia-500 to-cyan-400" />
+    </div>
+
+    <div className="w-80 h-80 bg-gradient-to-br from-blue-500/20 to-purple-500/20 rounded-3xl flex items-center justify-center backdrop-blur-sm border border-white/10">
+      <img src={src} alt={alt} className="w-72 h-72 object-cover rounded-2xl" />
+    </div>
+
+    {/* small accents */}
+    <div className="absolute -top-4 -right-4 w-8 h-8 rounded-full bg-gradient-to-r from-blue-400 to-cyan-400 animate-ping opacity-80" />
+    <div className="absolute -bottom-4 -left-4 w-6 h-6 rounded-full bg-gradient-to-r from-purple-400 to-pink-400 animate-bounce" />
+    <div className="absolute top-1/2 -right-8 w-4 h-4 rounded-full bg-gradient-to-r from-emerald-400 to-lime-400 animate-pulse" />
+  </div>
+);
+
 export function AboutSection() {
   return (
     <Section
       id="about"
       direction="up"
-      className="[--radial-h:75%] min-h-[100svh] scroll-mt-32 overflow-hidden"
+      className="min-h-[100svh] scroll-mt-32 overflow-hidden"
       contentClassName="px-4 py-24 md:py-28"
     >
       <div className="max-w-6xl mx-auto">
@@ -21,8 +44,18 @@ export function AboutSection() {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          <div className="space-y-8">
+        {/* ===== Row 1: image (left on lg) ↔ text ===== */}
+        <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
+          {/* Image on mobile appears AFTER text; on desktop it goes LEFT */}
+          <div className="flex justify-center lg:justify-start order-2 lg:order-1">
+            <GlowImage
+              src="https://udxisykpeytksyqndzys.supabase.co/storage/v1/object/public/portfolio/Professional%20Photo.webp"
+              alt="Professional photo of Isaiah"
+            />
+          </div>
+
+          {/* Text is first on mobile, right on desktop */}
+          <div className="order-1 lg:order-2">
             <Card className="creative-card border-0 bg-gradient-to-br from-background to-muted/20 hover:-translate-y-0.5 hover:shadow-lg">
               <CardContent className="p-8">
                 <div className="flex items-center space-x-3 mb-6">
@@ -34,17 +67,23 @@ export function AboutSection() {
                   </h3>
                 </div>
                 <p className="text-base leading-relaxed">
-                  I&apos;m a Computer Science major at Cal State LA and a Junior
-                  Web Developer Associate for the University–Student Union. I
-                  build accessible, responsive websites using React, TypeScript,
-                  and styled-components—focused on performance, usability, and
-                  scalability. My stack includes Next.js, Tailwind CSS, and
-                  shadcn/ui, and I specialize in reusable components, better
-                  a11y, and solving real frontend challenges.
+                  Hi there! I&apos;m Isaiah, a Computer Science major at Cal
+                  State LA and a Junior Web Developer Associate at the
+                  University Student Union. I work across the stack: building
+                  accessible, responsive interfaces, implementing backend
+                  features like authentication, and managing SQL databases. I
+                  also keep growing my cloud skills with AWS. My goal is to take
+                  projects from idea to deployment.
                 </p>
               </CardContent>
             </Card>
+          </div>
+        </div>
 
+        {/* ===== Row 2: text left ↔ shapes right ===== */}
+        <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
+          {/* Text card (left) */}
+          <div>
             <Card className="creative-card border-0 bg-gradient-to-br from-background to-muted/20 hover:-translate-y-0.5 hover:shadow-lg">
               <CardContent className="p-8">
                 <div className="flex items-center space-x-3 mb-6">
@@ -56,15 +95,44 @@ export function AboutSection() {
                   </h3>
                 </div>
                 <p className="text-base leading-relaxed">
-                  I don&apos;t just ship features—I solve problems that matter.
-                  Whether I&apos;m debugging critical layout issues or designing
-                  inclusive components with custom responsive styling, I thrive
-                  in constraints and deliver maintainable, scalable solutions
-                  that users can trust.
+                  Development is about helping real people. I like debugging
+                  tricky layout or logic issues, designing components that work
+                  for everyone, and building backend features that make apps
+                  reliable. Constraints don&apos;t slow me down—they help me
+                  ship solutions that are clear, maintainable, and easy for the
+                  next developer to extend.
                 </p>
               </CardContent>
             </Card>
+          </div>
 
+          {/* Decorative shapes (right) */}
+          <div className="relative hidden lg:flex items-center justify-center">
+            {/* Big blurred gradient circle */}
+            <div className="w-64 h-64 rounded-full bg-gradient-to-tr from-purple-500 via-fuchsia-400 to-cyan-400 opacity-20 blur-3xl" />
+
+            {/* Small floating dots */}
+            <div className="absolute top-8 right-12 w-6 h-6 rounded-full bg-gradient-to-r from-blue-400 to-cyan-400 animate-pulse opacity-70" />
+            <div className="absolute bottom-8 left-8 w-4 h-4 rounded-full bg-gradient-to-r from-purple-400 to-pink-400 animate-bounce opacity-70" />
+            <div className="absolute top-1/2 -right-4 w-3 h-3 rounded-full bg-gradient-to-r from-emerald-400 to-lime-400 animate-ping opacity-70" />
+          </div>
+
+          {/* Spacer (right side) */}
+          <div className="hidden lg:block" />
+        </div>
+
+        {/* ===== Row 3: image (left) ↔ text (right) ===== */}
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
+          {/* Image on the left */}
+          <div className="flex justify-center lg:justify-start">
+            <GlowImage
+              src="https://udxisykpeytksyqndzys.supabase.co/storage/v1/object/public/portfolio/Hawaii.webp"
+              alt="Hawaii picture of Isaiah"
+            />
+          </div>
+
+          {/* Text on the right */}
+          <div>
             <Card className="creative-card border-0 bg-gradient-to-br from-background to-muted/20 hover:-translate-y-0.5 hover:shadow-lg">
               <CardContent className="p-8">
                 <div className="flex items-center space-x-3 mb-6">
@@ -74,37 +142,14 @@ export function AboutSection() {
                   <h3 className="text-xl font-semibold text-base">The Human</h3>
                 </div>
                 <p className="text-base leading-relaxed">
-                  Outside the editor, I&apos;m into inclusive design, clear
-                  docs, and helping others grow. I explore how AI tools like V0
-                  and Copilot can enhance—never replace—creative development.
-                  I&apos;m currently prepping for AWS certs, building full-stack
-                  apps, and documenting it all with purpose.
+                  I believe good software comes from good teamwork. I enjoy
+                  collaborating, sharing ideas, and supporting the people I work
+                  with. I care deeply about accessibility and inclusive design,
+                  because technology should give everyone the same
+                  experience—including people who are often overlooked.
                 </p>
               </CardContent>
             </Card>
-          </div>
-
-          {/* Right column — image w/ hero-style glow + dots */}
-          <div className="flex justify-center lg:justify-end">
-            <div className="relative">
-              {/* soft aura like hero spotlight */}
-              <div className="absolute -inset-10 -z-10">
-                <div className="w-80 h-80 mx-auto rounded-full blur-2xl opacity-30 bg-gradient-to-tr from-purple-600 via-fuchsia-500 to-cyan-400" />
-              </div>
-
-              <div className="w-80 h-80 bg-gradient-to-br from-blue-500/20 to-purple-500/20 rounded-3xl flex items-center justify-center backdrop-blur-sm border border-white/10">
-                <img
-                  src="https://udxisykpeytksyqndzys.supabase.co/storage/v1/object/public/portfolio/profile-image.webp"
-                  alt="Image of Isaiah"
-                  className="w-72 h-72 object-cover rounded-2xl"
-                />
-              </div>
-
-              {/* a couple of small hero-style accent dots */}
-              <div className="absolute -top-4 -right-4 w-8 h-8 rounded-full bg-gradient-to-r from-blue-400 to-cyan-400 animate-ping opacity-80" />
-              <div className="absolute -bottom-4 -left-4 w-6 h-6 rounded-full bg-gradient-to-r from-purple-400 to-pink-400 animate-bounce" />
-              <div className="absolute top-1/2 -right-8 w-4 h-4 rounded-full bg-gradient-to-r from-emerald-400 to-lime-400 animate-pulse" />
-            </div>
           </div>
         </div>
       </div>
