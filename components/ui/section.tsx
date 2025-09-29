@@ -102,8 +102,10 @@ export function Section({
         <Reveal
           once={once}
           direction={direction}
-          margin={margin}
-          threshold={threshold}
+          margin="0px 0px -20% 0px" // reveal a little sooner
+          threshold={0.1} // triggers when 10% is visible
+          delay={0} // no delay
+          duration={350} // faster animation
           className="block w-full h-full p-0 m-0"
         >
           <div className={`block w-full h-full p-0 m-0 ${contentClassName}`}>

@@ -16,32 +16,12 @@ export function CertificationsSection() {
         "Studying core AWS services, architecture patterns, IAM, EC2, S3, and Lambda with hands-on projects and exam prep resources.",
     },
     {
-      title: "Self-Paced Full-Stack Developer Curriculum",
-      issuer: "Personal Project",
-      year: "2025",
-      status: "Ongoing",
-      icon: Rocket,
-      color: "from-teal-500 to-cyan-600",
-      description:
-        "Building real-world projects using React, TypeScript, Next.js, Node.js, shadcn/ui, and deploying to Vercel. Includes accessibility, performance, and mobile-first design best practices.",
-    },
-    {
-      title: "Interview Prep Tracker (DSA + System Design)",
-      issuer: "Personal Project",
-      year: "2025",
-      status: "Launching",
-      icon: Book,
-      color: "from-indigo-500 to-fuchsia-600",
-      description:
-        "Structured study plan for technical interviews covering data structures, algorithms, mock interviews, and behavioral prep with GitHub tracking.",
-    },
-    {
       title: "AWS Certified Developer – Associate",
       issuer: "Amazon Web Services",
       year: "2026",
       status: "Planned",
-      icon: BadgeCheck,
-      color: "from-yellow-500 to-orange-600",
+      icon: Rocket,
+      color: "from-teal-500 to-cyan-600",
       description:
         "Planned certification to deepen AWS developer tooling expertise after SAA-C03, with focus on Lambda, DynamoDB, and CI/CD workflows.",
     },

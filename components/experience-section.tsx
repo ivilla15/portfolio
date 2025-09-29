@@ -2,7 +2,14 @@ import { Section, Stagger } from "@/components/ui/section";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Download, MapPin, Calendar, Briefcase, Code2 } from "lucide-react";
+import {
+  Download,
+  MapPin,
+  Calendar,
+  Briefcase,
+  Code2,
+  ExternalLink,
+} from "lucide-react";
 
 export function ExperienceSection() {
   const experiences = [
@@ -25,6 +32,13 @@ export function ExperienceSection() {
         "Collaborated in Agile sprints using Notion, Slack, and GitHub best practices (branching, PR reviews).",
         "Provided hands-on guidance to student designers, introducing them to HTML/CSS and layout best practices to deploy static pages.",
         "Contributed to discussions on secure REST API design and database CRUD features.",
+      ],
+      links: [
+        {
+          name: "University Student Union",
+          url: "https://www.calstatelausu.org/",
+        },
+        { name: "Wingspan", url: "https://www.wingspanla.org/" },
       ],
     },
   ];
@@ -116,6 +130,24 @@ export function ExperienceSection() {
                                   {exp.period}
                                 </div>
                               </div>
+
+                              {/* Links to live pages */}
+                              {exp.links && (
+                                <div className="flex flex-wrap gap-3 mt-3">
+                                  {exp.links.map((link, i) => (
+                                    <a
+                                      key={i}
+                                      href={link.url}
+                                      target="_blank"
+                                      rel="noopener noreferrer"
+                                      className="inline-flex items-center text-sm font-medium text-blue-600 hover:underline"
+                                    >
+                                      {link.name}
+                                      <ExternalLink className="ml-1 h-3 w-3" />
+                                    </a>
+                                  ))}
+                                </div>
+                              )}
                             </div>
 
                             <div className="text-right">

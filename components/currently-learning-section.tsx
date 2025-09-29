@@ -31,10 +31,14 @@ export function CurrentlyLearningSection() {
                   Current Focus
                 </h3>
                 <p className="text-base leading-relaxed">
-                  Building standout full–stack projects using Next.js,
-                  TypeScript, and Tailwind while preparing for the AWS Solutions
-                  Architect Associate certification. Focused on accessibility,
-                  performance, and real-world deployment using Vercel.
+                  Right now I&apos;m sharpening my skills across the stack. On
+                  the frontend I&apos;m building with Next.js, TypeScript, and
+                  Tailwind. On the backend I&apos;m working with APIs,
+                  authentication, and databases. For my senior design project
+                  I'm exploring AI integration. I&apos;m also preparing for the
+                  AWS Certified Solutions Architect Associate exam. My focus is
+                  accessibility, performance, and deploying real projects people
+                  can actually use.
                 </p>
               </CardContent>
             </Card>
@@ -46,10 +50,12 @@ export function CurrentlyLearningSection() {
                 </div>
                 <h3 className="text-xl font-bold mb-4 text-base">Exploring</h3>
                 <p className="text-base leading-relaxed">
-                  Exploring design–to–code AI tools like V0, advanced React
-                  patterns, and scalable UI systems with shadcn/ui and
-                  styled–components. Also refining cloud fundamentals and
-                  staying sharp with version control best practices.
+                  I&apos;m exploring ways to bring all of my skills together in
+                  full stack projects that combine frontend, backend, databases,
+                  and cloud. My goal is to keep pushing myself with challenging
+                  builds that highlight scalability, accessibility, and real
+                  world problem solving, while continuing to sharpen my workflow
+                  with tools like Git and modern React patterns.
                 </p>
               </CardContent>
             </Card>
@@ -61,21 +67,14 @@ export function CurrentlyLearningSection() {
                 </div>
                 <h3 className="text-xl font-bold mb-4 text-base">Next Up</h3>
                 <p className="text-base leading-relaxed">
-                  Deepening backend skills with API design, authentication, and
-                  AWS architecture. Contributing to open source and launching
-                  the Interview Prep Tracker—my self–paced system for mastering
-                  DSA and system design before job season.
+                  Beyond the code, I&apos;m focused on growing into a developer
+                  who can create tools that really help people. The next step
+                  for me is taking on projects and opportunities that challenge
+                  me not only to code better, but to design with impact and
+                  accessibility in mind.
                 </p>
               </CardContent>
             </Card>
-          </div>
-
-          {/* Closing quote */}
-          <div className="mt-16 text-center">
-            <p className="text-lg text-base italic">
-              "The day you stop learning is the day you stop growing. I&apos;m
-              committed to staying curious."
-            </p>
           </div>
         </Stagger>
       </div>

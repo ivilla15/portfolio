@@ -133,26 +133,26 @@ export function HeroSection() {
 
           <div className="space-y-4">
             <h2 className="text-xl md:text-2xl text-slate-700/80 dark:text-slate-200/90 font-light tracking-wide">
-              FULL-STACK DEVELOPER & CLOUD ARCHITECT
+              FULL-STACK DEVELOPER & CLOUD ENGINEER IN TRAINING
             </h2>
             <p className="text-[1.05rem] text-slate-700/80 dark:text-slate-200/90 max-w-3xl mx-auto leading-relaxed">
-              Crafting digital experiences that matter. I build scalable web
-              applications and cloud solutions that solve real problems and
-              create lasting impact.
+              Engineering elegant, fast, and reliable web applications.
             </p>
           </div>
         </div>
 
         {/* CTAs */}
         <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-          <Button
-            size="lg"
-            className="text-base px-8 py-4 bg-gradient-to-r from-blue-600 via-fuchsia-600 to-cyan-500 hover:scale-105 transition-all duration-300 border border-white/10 shadow-lg"
-          >
-            <Download className="mr-2 h-5 w-5" />
-            View My Work
-            <ArrowRight className="ml-2 h-5 w-5" />
-          </Button>
+          <a href="#projects">
+            <Button
+              size="lg"
+              className="text-base px-8 py-4 bg-gradient-to-r from-blue-600 via-fuchsia-600 to-cyan-500 hover:scale-105 transition-all duration-300 border border-white/10 shadow-lg"
+            >
+              <Download className="mr-2 h-5 w-5" />
+              View My Work
+              <ArrowRight className="ml-2 h-5 w-5" />
+            </Button>
+          </a>
           <Button
             variant="outline"
             size="lg"
