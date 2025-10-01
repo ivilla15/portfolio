@@ -80,10 +80,10 @@ export function AboutSection() {
           </div>
         </div>
 
-        {/* ===== Row 2: text left ↔ shapes right ===== */}
+        {/* ===== Row 2: text (left) ↔ image (right) ===== */}
         <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
-          {/* Text card (left) */}
-          <div>
+          {/* Text left */}
+          <div className="order-2 lg:order-1">
             <Card className="creative-card border-0 bg-gradient-to-br from-background to-muted/20 hover:-translate-y-0.5 hover:shadow-lg">
               <CardContent className="p-8">
                 <div className="flex items-center space-x-3 mb-6">
@@ -98,7 +98,7 @@ export function AboutSection() {
                   Development is about helping real people. I like debugging
                   tricky layout or logic issues, designing components that work
                   for everyone, and building backend features that make apps
-                  reliable. Constraints don&apos;t slow me down—they help me
+                  reliable. Constraints don&apos;t slow me down, they help me
                   ship solutions that are clear, maintainable, and easy for the
                   next developer to extend.
                 </p>
@@ -106,19 +106,13 @@ export function AboutSection() {
             </Card>
           </div>
 
-          {/* Decorative shapes (right) */}
-          <div className="relative hidden lg:flex items-center justify-center">
-            {/* Big blurred gradient circle */}
-            <div className="w-64 h-64 rounded-full bg-gradient-to-tr from-purple-500 via-fuchsia-400 to-cyan-400 opacity-20 blur-3xl" />
-
-            {/* Small floating dots */}
-            <div className="absolute top-8 right-12 w-6 h-6 rounded-full bg-gradient-to-r from-blue-400 to-cyan-400 animate-pulse opacity-70" />
-            <div className="absolute bottom-8 left-8 w-4 h-4 rounded-full bg-gradient-to-r from-purple-400 to-pink-400 animate-bounce opacity-70" />
-            <div className="absolute top-1/2 -right-4 w-3 h-3 rounded-full bg-gradient-to-r from-emerald-400 to-lime-400 animate-ping opacity-70" />
+          {/* Image right */}
+          <div className="flex justify-center lg:justify-end order-1 lg:order-2">
+            <GlowImage
+              src="https://udxisykpeytksyqndzys.supabase.co/storage/v1/object/public/portfolio/coding.webp"
+              alt="Isaiah solving problems"
+            />
           </div>
-
-          {/* Spacer (right side) */}
-          <div className="hidden lg:block" />
         </div>
 
         {/* ===== Row 3: image (left) ↔ text (right) ===== */}
@@ -145,8 +139,8 @@ export function AboutSection() {
                   I believe good software comes from good teamwork. I enjoy
                   collaborating, sharing ideas, and supporting the people I work
                   with. I care deeply about accessibility and inclusive design,
-                  because technology should give everyone the same
-                  experience—including people who are often overlooked.
+                  because technology should give everyone the same experience,
+                  including people who are often overlooked.
                 </p>
               </CardContent>
             </Card>

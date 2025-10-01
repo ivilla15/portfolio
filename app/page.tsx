@@ -19,15 +19,15 @@ export default function Home() {
       <main>
         <HeroSection />
         <AboutSection />
-        <CurrentlyLearningSection />
-        <TechStackSection />
-        <FeaturedProjectsSection />
-        <CertificationsSection />
         <ExperienceSection />
+        <FeaturedProjectsSection />
+        <TechStackSection />
+        <CertificationsSection />
         {/* <BlogSection /> */}
-        <ContactSection />
-        <OrganizationsSection />
         <AwardsSection />
+        <OrganizationsSection />
+        <CurrentlyLearningSection />
+        <ContactSection />
       </main>
       <Footer />
     </div>

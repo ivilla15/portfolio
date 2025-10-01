@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Mail, Download } from "lucide-react";
+import { ArrowRight, Mail, Briefcase } from "lucide-react";
 import { Section } from "@/components/ui/section";
 
 export function HeroSection() {
@@ -143,13 +143,13 @@ export function HeroSection() {
 
         {/* CTAs */}
         <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-          <a href="#projects">
+          <a href="#experience">
             <Button
               size="lg"
               className="text-base px-8 py-4 bg-gradient-to-r from-blue-600 via-fuchsia-600 to-cyan-500 hover:scale-105 transition-all duration-300 border border-white/10 shadow-lg"
             >
-              <Download className="mr-2 h-5 w-5" />
-              View My Work
+              <Briefcase className="mr-2 h-5 w-5" />
+              View My Experience
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
           </a>

@@ -89,6 +89,7 @@ export function TechStackSection() {
       color: "from-yellow-500 to-blue-600",
     },
     { name: "Java", category: "language", color: "from-red-700 to-blue-700" },
+    { name: "V0", category: "AI", color: "from-green-400 to-indigo-700" },
   ];
 
   return (
