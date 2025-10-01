@@ -54,7 +54,7 @@ export function CertificationsSection() {
               const IconComponent = cert.icon;
               return (
                 <Stagger key={cert.title} step={0} start={index * 80}>
-                  <Card className="w-full max-w-sm creative-card border-0 bg-gradient-to-br from-background to-muted/20 overflow-hidden group">
+                  <Card className="w-full min-h-[370px] max-w-sm creative-card border-0 bg-gradient-to-br from-background to-muted/20 overflow-hidden group">
                     <CardHeader className="pb-4">
                       <div className="flex items-start justify-between">
                         <div

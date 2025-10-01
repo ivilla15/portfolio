@@ -15,7 +15,7 @@ export function ExperienceSection() {
   const experiences = [
     {
       title: "Junior Web Developer Associate (Full-Stack)",
-      company: "California State University Los Angeles Student Union",
+      company: "University-Student Union, Cal State LA",
       location: "Los Angeles, CA",
       period: "May 2025 - Present",
       type: "Intern",

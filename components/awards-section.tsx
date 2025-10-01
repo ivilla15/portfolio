@@ -79,11 +79,11 @@ export function AwardsSection() {
           </div>
 
           {/* Badge-style grid */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
             {awards.map((award, index) => (
               <Stagger key={award.title} step={0} start={index * 80}>
-                <Card className="creative-card border-0 bg-gradient-to-br from-background to-muted/10 overflow-hidden group">
-                  <CardContent className="p-6 relative">
+                <Card className="creative-card border-0 bg-gradient-to-br from-background to-muted/10 overflow-hidden group min-h-[315px] flex flex-col">
+                  <CardContent className="p-6 relative flex flex-col flex-grow">
                     {/* subtle card tint */}
                     <div
                       className={`absolute inset-0 bg-gradient-to-br ${award.color} opacity-5 group-hover:opacity-10 transition-opacity duration-300`}
