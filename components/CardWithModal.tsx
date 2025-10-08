@@ -187,9 +187,7 @@ export default function StaffCardWithModal() {
                   </span>
                 </Link>
               </div>
-              <QRCodeSVG
-                value={`https://www.calstatelausu.org/staff/${ME.slug}`}
-              />
+              <QRCodeSVG value={`https://www.ivilla.dev/card`} />
             </div>
           </div>
         </div>
