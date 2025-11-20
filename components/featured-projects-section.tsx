@@ -8,12 +8,20 @@ export function FeaturedProjectsSection() {
   const projects = [
     {
       title: "Amber AI Support System",
+      team: "Data Engineering & RAG Development",
       description:
-        "Industry partnered senior design project with the Amber Molecular Dynamics team. As part of the Data Engineering team, I'm building a pipeline to parse, clean, and structure 20+ years of email archive data into AI-ready formats. This supports a chatbot that helps Amber users troubleshoot issues using past expert replies. Working directly with Amber via Microsoft Teams.",
+        "Industry partnered senior design project with the Amber Molecular Dynamics team. As part of the Data Engineering and Retrieval Augmented Generation (RAG) team, I designed and implemented an end to end pipeline to parse, clean, and structure 20+ years of Amber user support emails into an AI ready knowledge base. This data powers a domain specific chatbot that retrieves expert insights and provides intelligent troubleshooting assistance for Amber users. My work included building and refining the RAG workflow, creating modular Python components for data retrieval and prompt construction, integrating a Chroma vector database and deploying the pipeline to the Amber server for live testing. This project was a direct collaboration with Amber developers via Microsoft Teams to align with their requirements.",
       image:
         "https://udxisykpeytksyqndzys.supabase.co/storage/v1/object/public/portfolio/Amber.webp",
-      technologies: ["Python", "BeautifulSoup", "Regex"],
-      codeUrl: "https://github.com/COMB-Lab/AMBER-AI-Support-System",
+      technologies: [
+        "Python",
+        "BeautifulSoup",
+        "Regex",
+        "LangChain",
+        "ChromaDB",
+        "OpenAI API",
+        "Pandas",
+      ],
       liveUrl: "https://ambermd.org",
       featured: true,
     },
@@ -39,6 +47,17 @@ export function FeaturedProjectsSection() {
       featured: false,
     },
     {
+      title: "Optimizing Urban Traffic Signal Timings",
+      description:
+        "Compared DIRECT, gradient descent, and differential evolution optimization algorithms to reduce traffic delays by 20%. Produced diagnostic time–space and probabilistic diagrams to evaluate scalability.",
+      image:
+        "https://udxisykpeytksyqndzys.supabase.co/storage/v1/object/public/portfolio/traffic-light.webp",
+      technologies: ["Python", "Optimization", "Data Visualization"],
+      codeUrl:
+        "https://github.com/ivilla15/Optimizing-Urban-Traffic-Signal-Timings-Using-the-DIRECT-Global-Search-Algorithm",
+      featured: false,
+    },
+    {
       title: "Peer-to-Peer Chat Application",
       description:
         "Developed a TCP-based client and server system enabling reliable multi-user messaging. Implemented socket programming with multi-threading, robust error handling, and session controls.",
@@ -50,19 +69,6 @@ export function FeaturedProjectsSection() {
         "Multi-threading",
         "Socket Programming",
       ],
-      codeUrl:
-        "https://github.com/Lgranad13/Remote_Chat_Group7https://github.com/Lgranad13/Remote_Chat_Group7",
-      featured: false,
-    },
-    {
-      title: "Optimizing Urban Traffic Signal Timings",
-      description:
-        "Compared DIRECT, gradient descent, and differential evolution optimization algorithms to reduce traffic delays by 20%. Produced diagnostic time–space and probabilistic diagrams to evaluate scalability.",
-      image:
-        "https://udxisykpeytksyqndzys.supabase.co/storage/v1/object/public/portfolio/traffic-light.webp",
-      technologies: ["Python", "Optimization", "Data Visualization"],
-      codeUrl:
-        "https://github.com/ivilla15/Optimizing-Urban-Traffic-Signal-Timings-Using-the-DIRECT-Global-Search-Algorithm",
       featured: false,
     },
   ];
@@ -143,21 +149,23 @@ export function FeaturedProjectsSection() {
           <div
             className={`grid ${project.liveUrl ? "grid-cols-2" : "grid-cols-1"} gap-4`}
           >
-            <a
-              href={project.codeUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex-1"
-            >
-              <Button
-                variant="outline"
-                size="sm"
-                className="w-full border-2 hover:bg-foreground hover:text-background transition-all duration-300 bg-transparent"
+            {project.codeUrl && (
+              <a
+                href={project.codeUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex-1"
               >
-                <Code className="mr-2 h-4 w-4" />
-                Code
-              </Button>
-            </a>
+                <Button
+                  variant="outline"
+                  size="sm"
+                  className="w-full border-2 hover:bg-foreground hover:text-background transition-all duration-300 bg-transparent"
+                >
+                  <Code className="mr-2 h-4 w-4" />
+                  Code
+                </Button>
+              </a>
+            )}
             {project.liveUrl && (
               <a
                 href={project.liveUrl}

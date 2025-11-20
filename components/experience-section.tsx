@@ -18,7 +18,7 @@ export function ExperienceSection() {
       company: "University-Student Union, Cal State LA",
       location: "Los Angeles, CA",
       period: "May 2025 - Present",
-      type: "Intern",
+      type: "Part-Time",
       icon: Code2,
       color: "from-blue-500 to-purple-600",
       responsibilities: [
@@ -31,7 +31,8 @@ export function ExperienceSection() {
         "Performed manual and automated accessibility audits using WAVE and Lighthouse, resolving 60+ issues across production environments.",
         "Collaborated in Agile sprints using Notion, Slack, and GitHub best practices (branching, PR reviews).",
         "Provided hands-on guidance to student designers, introducing them to HTML/CSS and layout best practices to deploy static pages.",
-        "Contributed to discussions on secure REST API design and database CRUD features.",
+        "Contributed to the design and development of secure Backoffice features, implementing NextAuth middleware for Microsoft Outlook SSO and Supabase CRUD APIs.",
+        "Automated database archiving enabling staff to manage Board Meeting documents directly through an authenticated admin dashboard.",
       ],
       links: [
         {
