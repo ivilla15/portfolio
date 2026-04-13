@@ -23,7 +23,7 @@ const links = [
 
 export function Footer() {
   return (
-    <footer className="mt-24 border-t border-white/5">
+    <footer className="border-t border-white/5">
       <FluidContainer>
         <div className="flex flex-col items-center justify-between gap-6 py-10 sm:flex-row">
           <div className="text-center sm:text-left">

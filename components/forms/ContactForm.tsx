@@ -1,20 +1,10 @@
 "use client";
 
 import * as React from "react";
-import { Loader2, Mail, Send } from "lucide-react";
+import { Loader2, Send } from "lucide-react";
 
 import { sendContact } from "@/components/forms/actions/sendContact";
-import {
-  Button,
-  Card,
-  CardContent,
-  CardHeader,
-  CardTitle,
-  Input,
-  Label,
-  Textarea,
-  Typography,
-} from "@/components/ui";
+import { Button, Input, Label, Textarea, Typography } from "@/components/ui";
 import { useToast } from "@/components/ui/use-toast";
 
 export default function ContactForm() {
@@ -54,79 +44,73 @@ export default function ContactForm() {
   }
 
   return (
-    <Card className="h-full">
-      <CardHeader className="p-6 sm:p-7">
-        <div className="mb-5 inline-flex h-11 w-11 items-center justify-center rounded-full bg-primary/10 text-primary shadow-soft">
-          <Mail className="h-5 w-5" aria-hidden="true" />
+    <div className="h-full">
+      <Typography variant="h3" className="text-2xl sm:text-3xl">
+        Send a message
+      </Typography>
+
+      <Typography variant="body" className="mt-3 max-w-2xl">
+        Whether you want to talk about a project, an opportunity, or just say
+        hello, feel free to reach out.
+      </Typography>
+
+      <form onSubmit={handleSubmit} className="mt-8 space-y-5" noValidate>
+        <input
+          type="text"
+          name="company"
+          tabIndex={-1}
+          autoComplete="off"
+          className="hidden"
+          aria-hidden="true"
+        />
+
+        <div className="grid gap-5 md:grid-cols-2">
+          <div className="space-y-2">
+            <Label htmlFor="name">Name</Label>
+            <Input id="name" name="name" autoComplete="name" required />
+          </div>
+
+          <div className="space-y-2">
+            <Label htmlFor="email">Email</Label>
+            <Input
+              id="email"
+              name="email"
+              type="email"
+              autoComplete="email"
+              required
+            />
+          </div>
         </div>
 
-        <CardTitle className="text-2xl sm:text-3xl">Send a message</CardTitle>
+        <div className="space-y-2">
+          <Label htmlFor="subject">Subject</Label>
+          <Input id="subject" name="subject" required />
+        </div>
 
-        <Typography variant="body" className="mt-3 max-w-2xl">
-          Whether you want to talk about a project, an opportunity, or just say
-          hello, feel free to reach out.
-        </Typography>
-      </CardHeader>
+        <div className="space-y-2">
+          <Label htmlFor="message">Message</Label>
+          <Textarea id="message" name="message" rows={6} required />
+        </div>
 
-      <CardContent className="px-6 pb-6 sm:px-7 sm:pb-7">
-        <form onSubmit={handleSubmit} className="space-y-5" noValidate>
-          <input
-            type="text"
-            name="company"
-            tabIndex={-1}
-            autoComplete="off"
-            className="hidden"
-            aria-hidden="true"
-          />
-
-          <div className="grid gap-5 md:grid-cols-2">
-            <div className="space-y-2">
-              <Label htmlFor="name">Name</Label>
-              <Input id="name" name="name" autoComplete="name" required />
-            </div>
-
-            <div className="space-y-2">
-              <Label htmlFor="email">Email</Label>
-              <Input
-                id="email"
-                name="email"
-                type="email"
-                autoComplete="email"
-                required
-              />
-            </div>
-          </div>
-
-          <div className="space-y-2">
-            <Label htmlFor="subject">Subject</Label>
-            <Input id="subject" name="subject" required />
-          </div>
-
-          <div className="space-y-2">
-            <Label htmlFor="message">Message</Label>
-            <Textarea id="message" name="message" rows={6} required />
-          </div>
-
-          <Button
-            type="submit"
-            size="lg"
-            className="w-full sm:w-auto"
-            disabled={isSubmitting}
-          >
-            {isSubmitting ? (
-              <>
-                <Loader2 className="h-4 w-4 animate-spin" />
-                Sending...
-              </>
-            ) : (
-              <>
-                <Send className="h-4 w-4" />
-                Send Message
-              </>
-            )}
-          </Button>
-        </form>
-      </CardContent>
-    </Card>
+        <Button
+          type="submit"
+          size="lg"
+          className="w-full sm:w-auto"
+          disabled={isSubmitting}
+        >
+          {isSubmitting ? (
+            <>
+              <Loader2 className="h-4 w-4 animate-spin" />
+              Sending...
+            </>
+          ) : (
+            <>
+              <Send className="h-4 w-4" />
+              Send Message
+            </>
+          )}
+        </Button>
+      </form>
+    </div>
   );
 }

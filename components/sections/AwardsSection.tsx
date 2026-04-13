@@ -9,25 +9,22 @@ export function AwardsSection() {
       id="awards"
       kicker="Awards"
       title="Recognition and academic achievements"
-      description="A few milestones that reflect my academic consistency, scholarship support, and continued growth as a computer science student."
+      description="A few milestones that reflect academic consistency, scholarship support, and continued growth as a computer science student."
     >
-      <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+      <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
         {awardItems.map((award) => (
-          <Card key={award.id} className="h-full">
-            <CardContent className="flex h-full flex-col p-6 sm:p-7">
-              <div className="mb-4 inline-flex h-11 w-11 items-center justify-center rounded-full bg-primary/10 text-primary shadow-soft">
-                <Trophy className="h-5 w-5" />
+          <Card key={award.id} variant="quiet" className="h-full">
+            <CardContent className="flex h-full flex-col p-6">
+              <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 text-primary shadow-soft">
+                <Trophy className="h-4 w-4" />
               </div>
 
-              <Typography variant="h3" className="text-xl">
+              <Typography variant="h3" className="text-lg sm:text-xl">
                 {award.title}
               </Typography>
 
               {award.year ? (
-                <Typography
-                  variant="label"
-                  className="mt-3 normal-case tracking-[0.08em]"
-                >
+                <Typography variant="muted" className="mt-2">
                   {award.year}
                 </Typography>
               ) : null}

@@ -12,7 +12,7 @@ const Textarea = React.forwardRef<
       className={cn(
         [
           "flex min-h-[140px] w-full rounded-[14px]",
-          "bg-surface-2 px-4 py-3 text-sm text-primary shadow-soft",
+          "bg-surface-3 px-4 py-3 text-base text-primary shadow-soft",
           "placeholder:text-muted-custom",
           "transition-all duration-200 ease-out",
           "resize-y",

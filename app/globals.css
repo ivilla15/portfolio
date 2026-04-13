@@ -4,10 +4,10 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
+    --background: 35 28% 97%;
     --foreground: 222 47% 11%;
 
-    --card: 210 40% 98%;
+    --card: 0 0% 100%;
     --card-foreground: 222 47% 11%;
 
     --popover: 0 0% 100%;
@@ -16,11 +16,11 @@
     --primary: 221 83% 53%;
     --primary-foreground: 210 40% 98%;
 
-    --secondary: 210 40% 96%;
+    --secondary: 35 18% 93%;
     --secondary-foreground: 222 47% 11%;
 
-    --muted: 210 40% 96%;
-    --muted-foreground: 215 16% 47%;
+    --muted: 35 18% 94%;
+    --muted-foreground: 215 16% 42%;
 
     --accent: 221 83% 53%;
     --accent-foreground: 210 40% 98%;
@@ -28,32 +28,35 @@
     --destructive: 0 72% 51%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 214 32% 91%;
-    --input: 214 32% 91%;
+    --border: 35 16% 88%;
+    --input: 35 16% 88%;
     --ring: 221 83% 53%;
 
     --radius: 1rem;
 
-    --surface-1: 0 0% 100%;
-    --surface-2: 210 40% 98%;
-    --surface-3: 210 40% 96%;
+    /* Layered surfaces for light mode */
+    --surface-1: 35 28% 97%; /* page */
+    --surface-2: 0 0% 100%; /* primary cards */
+    --surface-3: 35 18% 93%; /* quieter cards / inputs / grouped panels */
+    --surface-4: 35 16% 89%; /* optional deeper layer */
 
     --text-1: 222 47% 11%;
     --text-2: 215 25% 27%;
-    --text-3: 215 16% 47%;
+    --text-3: 215 16% 42%;
 
-    --shadow-color: 220 40% 2%;
+    --shadow-color: 220 30% 10%;
     --shadow-soft:
-      0 1px 2px hsla(var(--shadow-color), 0.04),
-      0 10px 30px hsla(var(--shadow-color), 0.08);
+      0 2px 4px hsla(var(--shadow-color), 0.06),
+      0 12px 28px hsla(var(--shadow-color), 0.1);
     --shadow-medium:
-      0 2px 6px hsla(var(--shadow-color), 0.06),
-      0 18px 48px hsla(var(--shadow-color), 0.12);
+      0 6px 14px hsla(var(--shadow-color), 0.1),
+      0 24px 56px hsla(var(--shadow-color), 0.14);
     --shadow-large:
-      0 8px 24px hsla(var(--shadow-color), 0.08),
-      0 24px 64px hsla(var(--shadow-color), 0.14);
+      0 12px 28px hsla(var(--shadow-color), 0.12),
+      0 32px 80px hsla(var(--shadow-color), 0.18);
 
-    --selection: 221 83% 53%;
+    --selection-bg: 221 83% 53%;
+    --selection-fg: 210 40% 98%;
   }
 
   .dark {
@@ -88,6 +91,7 @@
     --surface-1: 240 10% 4%;
     --surface-2: 240 8% 8%;
     --surface-3: 240 6% 11%;
+    --surface-4: 240 5% 14%;
 
     --text-1: 210 20% 96%;
     --text-2: 214 15% 78%;
@@ -104,7 +108,8 @@
       0 10px 28px hsla(var(--shadow-color), 0.3),
       0 30px 80px hsla(var(--shadow-color), 0.3);
 
-    --selection: 217 91% 60%;
+    --selection-bg: 217 91% 60%;
+    --selection-fg: 222 47% 11%;
   }
 
   * {
@@ -116,7 +121,7 @@
   }
 
   body {
-    @apply bg-background text-foreground font-sans;
+    @apply bg-background font-sans text-foreground;
     min-height: 100vh;
     text-rendering: optimizeLegibility;
     background-color: hsl(var(--background));
@@ -124,12 +129,17 @@
   }
 
   ::selection {
-    background-color: hsla(var(--selection), 0.22);
+    background-color: hsl(var(--selection-bg));
+    color: hsl(var(--selection-fg));
   }
 
   a {
     color: inherit;
     text-decoration: none;
+    transition:
+      color 180ms ease,
+      opacity 180ms ease,
+      transform 180ms ease;
   }
 
   button,
@@ -178,7 +188,7 @@
   input,
   textarea,
   select {
-    background-color: hsl(var(--surface-2));
+    background-color: hsl(var(--surface-3));
     color: hsl(var(--text-1));
     border: none;
     box-shadow: var(--shadow-soft);
@@ -193,6 +203,7 @@
   textarea:focus,
   select:focus {
     outline: none;
+    background-color: hsl(var(--surface-2));
     box-shadow:
       0 0 0 3px hsla(var(--ring), 0.18),
       var(--shadow-medium);
@@ -213,8 +224,8 @@
     @apply min-h-screen bg-background text-foreground;
     background-image: radial-gradient(
       circle at top,
-      hsla(var(--primary), 0.08),
-      transparent 28%
+      hsla(var(--primary), 0.045),
+      transparent 26%
     );
   }
 
@@ -223,13 +234,34 @@
     padding-block: clamp(4rem, 8vw, 6rem);
   }
 
+  /* Light mode section dividers only */
+  :root .section-shell + .section-shell::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: min(72rem, calc(100% - 2rem));
+    height: 1px;
+    transform: translateX(-50%);
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(15, 23, 42, 0.07),
+      transparent
+    );
+  }
+
+  .dark .section-shell + .section-shell::before {
+    background: transparent;
+  }
+
   .content-shell {
     @apply mx-auto w-full px-4 sm:px-6 lg:px-8;
     max-width: 72rem;
   }
 
   .section-kicker {
-    @apply mb-4 inline-flex items-center rounded-full px-3 py-1 text-xs font-medium uppercase tracking-[0.18em];
+    @apply mb-4 inline-flex items-center rounded-full px-3 py-1 text-sm font-medium uppercase tracking-[0.16em];
     background-color: hsla(var(--primary), 0.1);
     color: hsl(var(--primary));
     box-shadow: var(--shadow-soft);
@@ -255,13 +287,52 @@
   }
 
   .surface-card:hover {
-    transform: translateY(-2px);
+    transform: translateY(-3px);
     box-shadow: var(--shadow-medium);
   }
 
-  .surface-card-elevated {
-    @apply rounded-[24px];
+  .surface-card-featured {
+    @apply rounded-[28px];
+    background: linear-gradient(
+      180deg,
+      hsla(var(--surface-2), 1),
+      hsla(var(--surface-3), 0.98)
+    );
+    box-shadow: var(--shadow-medium);
+    transition:
+      transform 240ms ease,
+      box-shadow 240ms ease,
+      background-color 240ms ease;
+  }
+
+  .surface-card-featured:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-large);
+  }
+
+  .surface-card-quiet {
+    @apply rounded-[22px];
     background-color: hsl(var(--surface-3));
+    box-shadow: var(--shadow-soft);
+    transition:
+      transform 180ms ease,
+      box-shadow 180ms ease,
+      background-color 180ms ease;
+  }
+
+  .surface-card-quiet:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-medium);
+    background-color: hsl(var(--surface-2));
+  }
+
+  .soft-panel {
+    @apply rounded-[28px];
+    background: linear-gradient(
+      180deg,
+      hsla(var(--surface-3), 0.98),
+      hsla(var(--surface-2), 1)
+    );
     box-shadow: var(--shadow-medium);
     transition:
       transform 220ms ease,
@@ -269,19 +340,9 @@
       background-color 220ms ease;
   }
 
-  .surface-card-elevated:hover {
-    transform: translateY(-3px);
+  .soft-panel:hover {
+    transform: translateY(-2px);
     box-shadow: var(--shadow-large);
-  }
-
-  .soft-panel {
-    @apply rounded-[28px];
-    background: linear-gradient(
-      180deg,
-      hsla(var(--surface-3), 0.96),
-      hsla(var(--surface-2), 0.98)
-    );
-    box-shadow: var(--shadow-medium);
   }
 
   .button-primary {
@@ -319,14 +380,26 @@
   }
 
   .tag-chip {
-    @apply inline-flex items-center rounded-full px-3 py-1.5 text-xs font-medium;
+    @apply inline-flex items-center rounded-full px-3 py-1.5 text-sm font-medium;
     background-color: hsl(var(--surface-3));
     color: hsl(var(--text-2));
     box-shadow: var(--shadow-soft);
+    transition:
+      transform 180ms ease,
+      background-color 180ms ease,
+      box-shadow 180ms ease,
+      color 180ms ease;
+  }
+
+  .tag-chip:hover {
+    transform: translateY(-1px);
+    background-color: hsla(var(--primary), 0.1);
+    color: hsl(var(--primary));
+    box-shadow: var(--shadow-medium);
   }
 
   .mono-label {
-    @apply font-mono text-xs uppercase tracking-[0.16em];
+    @apply font-mono text-sm uppercase tracking-[0.14em];
     color: hsl(var(--text-3));
   }
 
@@ -362,6 +435,11 @@
       grid-template-columns: repeat(3, minmax(0, 1fr));
     }
   }
+
+  /* Optional utility for alternating section background */
+  .section-tinted {
+    background-color: hsla(var(--surface-3), 0.42);
+  }
 }
 
 @layer utilities {
@@ -387,6 +465,10 @@
 
   .bg-surface-3 {
     background-color: hsl(var(--surface-3));
+  }
+
+  .bg-surface-4 {
+    background-color: hsl(var(--surface-4));
   }
 
   .shadow-soft {

@@ -8,11 +8,13 @@ import {
   InvolvementSection,
   ProjectsSection,
   TechStackSection,
+  TopNav,
 } from "@/components/sections";
 
 export default function Page() {
   return (
     <main className="page-shell">
+      <TopNav />
       <HeroSection />
       <AboutSection />
       <ExperienceSection />

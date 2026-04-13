@@ -25,8 +25,8 @@ const variantStyles: Record<Variant, string> = {
   body: "text-base text-secondary leading-relaxed",
   "body-lg": "text-lg text-secondary leading-relaxed",
   muted: "text-sm text-muted-custom",
-  label: "text-xs uppercase tracking-[0.16em] text-muted-custom",
-  mono: "font-mono text-xs text-muted-custom",
+  label: "text-m uppercase tracking-[0.16em] font-semibold",
+  mono: "font-mono text-m text-muted-custom",
 };
 
 export function Typography({

@@ -7,3 +7,4 @@ export * from "./HeroSection";
 export * from "./InvolvementSection";
 export * from "./ProjectsSection";
 export * from "./TechStackSection";
+export * from "./TopNav";

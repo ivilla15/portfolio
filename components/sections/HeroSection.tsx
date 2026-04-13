@@ -20,7 +20,7 @@ export function HeroSection() {
 
             <Typography
               variant="body-lg"
-              className="mt-5 max-w-2xl text-base sm:text-lg"
+              className="mt-5 text-m max-w-2xl text-base sm:text-lg"
             >
               I build accessible, responsive web applications with React,
               Next.js, TypeScript, and modern backend tools.
@@ -28,7 +28,7 @@ export function HeroSection() {
 
             <Typography
               variant="body"
-              className="mt-4 max-w-2xl text-sm sm:text-base"
+              className="mt-5 text-m max-w-2xl text-base sm:text-lg"
             >
               I care about clean UI, thoughtful engineering, and building
               software that feels practical, polished, and easy to use.

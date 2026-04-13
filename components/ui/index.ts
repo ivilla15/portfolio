@@ -6,6 +6,7 @@ export * from "./label";
 export * from "./section";
 export * from "./tag";
 export * from "./textarea";
+export * from "./theme-toggle";
 export * from "./toast";
 export * from "./typography";
 export * from "./use-toast";

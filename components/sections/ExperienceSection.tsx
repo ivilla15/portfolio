@@ -73,7 +73,7 @@ export function ExperienceSection() {
                             </div>
 
                             {item.employmentType ? (
-                              <Tag className="text-xs">
+                              <Tag className="text-m">
                                 {item.employmentType}
                               </Tag>
                             ) : null}
