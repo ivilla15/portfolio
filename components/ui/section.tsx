@@ -1,154 +1,58 @@
-"use client";
-
 import React from "react";
-import { Reveal } from "@/components/ui/reveal";
-
-type Dir = "up" | "down" | "left" | "right" | "none";
+import { cn } from "@/lib/utils";
+import { FluidContainer, Typography } from "@/components/ui";
 
 type SectionProps = {
   id?: string;
   className?: string;
   children: React.ReactNode;
-  /** Optional: override background */
-  background?: React.ReactNode;
-  contentClassName?: string;
-  direction?: Dir;
-  margin?: string;
-  threshold?: number;
-  once?: boolean;
+  kicker?: string;
+  title?: string;
+  description?: string;
+  align?: "left" | "center";
 };
 
 export function Section({
   id,
-  className = "",
+  className,
   children,
-  background,
-  contentClassName = "",
-  direction = "up",
-  margin = "-12% 0px -32% 0px",
-  threshold = 0.15,
-  once = false,
+  kicker,
+  title,
+  description,
+  align = "left",
 }: SectionProps) {
   return (
-    <section
-      id={id}
-      className={`relative isolate p-0 ${className}`}
-      style={
-        {
-          "--radial-h": "75%", // 👈 default radial height for all sections
-        } as React.CSSProperties
-      }
-    >
-      {/* Full-bleed background */}
-      <div className="absolute inset-0 z-0 pointer-events-none select-none">
-        {background ? (
-          background
-        ) : (
-          <>
-            {/* Dark mode */}
-            <div
-              aria-hidden
-              className="absolute inset-0 hidden dark:block"
-              style={{
-                backgroundImage: `
-                  radial-gradient(
-                    var(--radial-w,60%) var(--radial-h) at 50% 50%,
-                    rgba(120,60,200,0.50),
-                    transparent 70%
-                  ),
-                  linear-gradient(
-                    to bottom,
-                    transparent 0%,
-                    rgba(10,10,30,0.26) var(--wash-top,40%),
-                    rgba(5,5,20,0.54) var(--wash-bottom,60%),
-                    transparent 100%
-                  )
-                `,
-                backgroundRepeat: "no-repeat",
-                backgroundSize: "cover",
-                backgroundPosition: "center",
-              }}
-            />
-            {/* Light mode */}
-            <div
-              aria-hidden
-              className="absolute inset-0 block dark:hidden"
-              style={{
-                backgroundImage: `
-                  radial-gradient(
-                    var(--radial-w,60%) var(--radial-h) at 50% 50%,
-                    rgba(140,100,220,0.25),
-                    transparent 70%
-                  ),
-                  linear-gradient(
-                    to bottom,
-                    transparent 0%,
-                    rgba(240,242,255,0.50) var(--wash-top,40%),
-                    rgba(230,234,252,0.80) var(--wash-bottom,60%),
-                    transparent 100%
-                  )
-                `,
-                backgroundRepeat: "no-repeat",
-                backgroundSize: "cover",
-                backgroundPosition: "center",
-              }}
-            />
-          </>
-        )}
-      </div>
+    <section id={id} className={cn("section-shell", className)}>
+      <FluidContainer>
+        {(kicker || title || description) && (
+          <div
+            className={cn(
+              "mb-10 max-w-2xl",
+              align === "center" && "mx-auto text-center",
+            )}
+          >
+            {kicker && (
+              <Typography variant="label" className="mb-3">
+                {kicker}
+              </Typography>
+            )}
 
-      {/* Content */}
-      <div className="relative z-10 w-full [min-height:inherit]">
-        <Reveal
-          once={once}
-          direction={direction}
-          margin="0px 0px -20% 0px" // reveal a little sooner
-          threshold={0.1} // triggers when 10% is visible
-          delay={0} // no delay
-          duration={350} // faster animation
-          className="block w-full h-full p-0 m-0"
-        >
-          <div className={`block w-full h-full p-0 m-0 ${contentClassName}`}>
-            {children}
+            {title && (
+              <Typography variant="h2" className="section-heading">
+                {title}
+              </Typography>
+            )}
+
+            {description && (
+              <Typography variant="body-lg" className="section-copy mt-4">
+                {description}
+              </Typography>
+            )}
           </div>
-        </Reveal>
-      </div>
+        )}
+
+        <div>{children}</div>
+      </FluidContainer>
     </section>
-  );
-}
-
-/* ---- Stagger (unchanged) ---- */
-type StaggerProps = {
-  children: React.ReactNode;
-  step?: number;
-  start?: number;
-  direction?: Dir;
-  once?: boolean;
-  itemClassName?: string;
-};
-
-export function Stagger({
-  children,
-  step = 120,
-  start = 0,
-  direction = "up",
-  once = true,
-  itemClassName = "",
-}: StaggerProps) {
-  const items = React.Children.toArray(children);
-  return (
-    <>
-      {items.map((child, i) => (
-        <Reveal
-          key={i}
-          delay={start + i * step}
-          direction={direction}
-          once={once}
-          className={`block p-0 m-0 ${itemClassName}`}
-        >
-          <div className="block w-full p-0 m-0">{child}</div>
-        </Reveal>
-      ))}
-    </>
   );
 }
