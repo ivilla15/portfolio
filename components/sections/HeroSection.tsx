@@ -10,9 +10,7 @@ export function HeroSection() {
       <FluidContainer>
         <div className="grid items-center gap-10 lg:grid-cols-[1.15fr_0.85fr] lg:gap-14">
           <div className="order-2 max-w-3xl lg:order-1">
-            <Tag className="mb-5">
-              Computer Science Student • Full-Stack Builder
-            </Tag>
+            <Tag className="mb-5">Full-Stack Software Engineer</Tag>
 
             <Typography variant="h1" className="max-w-4xl">
               Isaiah Villalobos
@@ -49,21 +47,13 @@ export function HeroSection() {
                 </Link>
               </Button>
             </div>
-
-            <div className="mt-8 flex flex-wrap gap-2.5">
-              <Tag>React</Tag>
-              <Tag>Next.js</Tag>
-              <Tag>TypeScript</Tag>
-              <Tag>AWS</Tag>
-              <Tag>Accessibility</Tag>
-            </div>
           </div>
 
           <div className="order-1 lg:order-2">
             <div className="soft-panel mx-auto w-full max-w-[420px] p-3 sm:p-4 lg:ml-auto lg:mr-0">
               <div className="relative aspect-[4/5] overflow-hidden rounded-[24px] bg-surface-3 shadow-medium">
                 <Image
-                  src="/images/isaiah-portrait.jpg"
+                  src="https://udxisykpeytksyqndzys.supabase.co/storage/v1/object/public/portfolio/Portfolio-Hero.webp"
                   alt="Portrait of Isaiah Villalobos"
                   fill
                   priority

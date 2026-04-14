@@ -31,6 +31,6 @@ export const awardItems: AwardItem[] = [
   {
     id: "gmis-2025-award",
     title: "GMiS 2025 Conference Award Winner",
-    detail: "Recognized at the Great Minds in STEM 2025 conference",
+    detail: "Awarded trip to the Great Minds in STEM 2025 conference",
   },
 ];

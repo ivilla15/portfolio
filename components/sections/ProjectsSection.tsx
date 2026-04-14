@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight, Github } from "lucide-react";
 
-import { featuredProjects } from "@/data";
+import { featuredProjects, secondaryProjects } from "@/data";
 import {
   Button,
   Card,
@@ -17,27 +17,35 @@ import {
 } from "@/components/ui";
 
 export function ProjectsSection() {
-  const [primaryProject, ...secondaryProjects] = featuredProjects;
+  const primaryProject = featuredProjects[0];
 
   return (
     <Section
       id="projects"
       kicker="Projects"
       title="Selected work"
-      description="A few projects that reflect how I approach building software, from system design and backend architecture to UI quality and real-world usability."
+      description="Projects that reflect how I approach building software across full-stack systems, backend architecture, and applied engineering."
     >
       <div className="space-y-6">
         {primaryProject ? (
           <Card className="overflow-hidden">
             <div className="grid gap-0 lg:grid-cols-[1.15fr_0.85fr]">
-              <div className="relative min-h-[280px] bg-surface-3 sm:min-h-[360px]">
-                <Image
-                  src={primaryProject.image}
-                  alt={primaryProject.imageAlt}
-                  fill
-                  className="object-cover object-top"
-                  sizes="(min-width: 1024px) 60vw, 100vw"
-                />
+              <div className="grid gap-4 bg-surface-3 p-4 sm:p-6">
+                {primaryProject.images?.map((image) => (
+                  <div
+                    key={image.src}
+                    className="overflow-hidden rounded-[16px] bg-surface-2 shadow-soft"
+                  >
+                    <Image
+                      src={image.src}
+                      alt={image.alt}
+                      width={1200}
+                      height={800}
+                      className="h-auto w-full object-contain"
+                      priority
+                    />
+                  </div>
+                ))}
               </div>
 
               <div className="flex h-full flex-col">
@@ -58,7 +66,7 @@ export function ProjectsSection() {
                   </CardDescription>
                 </CardHeader>
 
-                <CardContent className="pt-0">
+                <CardContent className="flex flex-1 flex-col pt-0">
                   <Typography variant="body" className="text-base">
                     {primaryProject.impact}
                   </Typography>
@@ -70,7 +78,7 @@ export function ProjectsSection() {
                   </div>
                 </CardContent>
 
-                {(primaryProject.href || primaryProject.githubHref) && (
+                {primaryProject.href || primaryProject.githubHref ? (
                   <CardFooter className="mt-auto flex flex-wrap gap-3">
                     {primaryProject.href ? (
                       <Button asChild size="sm">
@@ -86,7 +94,7 @@ export function ProjectsSection() {
                     ) : null}
 
                     {primaryProject.githubHref ? (
-                      <Button asChild variant="secondary" size="sm">
+                      <Button asChild variant="muted" size="sm">
                         <Link
                           href={primaryProject.githubHref}
                           target="_blank"
@@ -98,7 +106,7 @@ export function ProjectsSection() {
                       </Button>
                     ) : null}
                   </CardFooter>
-                )}
+                ) : null}
               </div>
             </div>
           </Card>
@@ -110,24 +118,33 @@ export function ProjectsSection() {
               <Card
                 key={project.id}
                 variant="default"
-                className="overflow-hidden"
+                className="flex h-full flex-col"
               >
-                <div className="relative aspect-[16/10] bg-surface-3">
-                  <Image
-                    src={project.image}
-                    alt={project.imageAlt}
-                    fill
-                    className="object-cover object-top"
-                    sizes="(min-width: 1024px) 50vw, 100vw"
-                  />
-                </div>
+                {project.images?.length ? (
+                  <div className="grid gap-3 bg-surface-3 p-4">
+                    {project.images.map((image) => (
+                      <div
+                        key={image.src}
+                        className="overflow-hidden rounded-[14px] bg-surface-2 shadow-soft"
+                      >
+                        <Image
+                          src={image.src}
+                          alt={image.alt ?? project.title}
+                          width={1200}
+                          height={800}
+                          className="h-auto w-full object-contain"
+                        />
+                      </div>
+                    ))}
+                  </div>
+                ) : null}
 
                 <CardHeader className="pb-3">
                   <CardTitle>{project.title}</CardTitle>
                   <CardDescription>{project.description}</CardDescription>
                 </CardHeader>
 
-                <CardContent className="pt-0">
+                <CardContent className="flex flex-1 flex-col pt-0">
                   <Typography variant="body" className="text-base">
                     {project.impact}
                   </Typography>
@@ -139,8 +156,8 @@ export function ProjectsSection() {
                   </div>
                 </CardContent>
 
-                {(project.href || project.githubHref) && (
-                  <CardFooter className="flex flex-wrap gap-3">
+                {project.href || project.githubHref ? (
+                  <CardFooter className="mt-auto flex flex-wrap gap-3">
                     {project.href ? (
                       <Button asChild size="sm">
                         <Link
@@ -155,7 +172,7 @@ export function ProjectsSection() {
                     ) : null}
 
                     {project.githubHref ? (
-                      <Button asChild variant="secondary" size="sm">
+                      <Button asChild variant="muted" size="sm">
                         <Link
                           href={project.githubHref}
                           target="_blank"
@@ -167,7 +184,7 @@ export function ProjectsSection() {
                       </Button>
                     ) : null}
                   </CardFooter>
-                )}
+                ) : null}
               </Card>
             ))}
           </div>

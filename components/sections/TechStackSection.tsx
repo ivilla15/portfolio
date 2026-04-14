@@ -23,7 +23,9 @@ export function TechStackSection() {
 
               <div className="mt-5 flex flex-wrap gap-2">
                 {group.items.map((item) => (
-                  <Tag key={item}>{item}</Tag>
+                  <Tag variant={"accent"} key={item}>
+                    {item}
+                  </Tag>
                 ))}
               </div>
             </CardContent>

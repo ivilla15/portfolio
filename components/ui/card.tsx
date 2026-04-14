@@ -69,17 +69,35 @@ const CardDescription = React.forwardRef<
 ));
 CardDescription.displayName = "CardDescription";
 
-const CardContent = React.forwardRef<
-  HTMLDivElement,
-  React.HTMLAttributes<HTMLDivElement>
->(({ className, ...props }, ref) => (
-  <div
-    ref={ref}
-    className={cn("px-6 pb-6 sm:px-7 sm:pb-7", className)}
-    {...props}
-  />
-));
+/* ------------------ NEW VARIANT SYSTEM ------------------ */
+
+const cardContentVariants = cva("", {
+  variants: {
+    variant: {
+      default: "px-6 pb-6 sm:px-7 sm:pb-7",
+      flush: "p-0",
+    },
+  },
+  defaultVariants: {
+    variant: "default",
+  },
+});
+
+type CardContentProps = React.HTMLAttributes<HTMLDivElement> &
+  VariantProps<typeof cardContentVariants>;
+
+const CardContent = React.forwardRef<HTMLDivElement, CardContentProps>(
+  ({ className, variant, ...props }, ref) => (
+    <div
+      ref={ref}
+      className={cn(cardContentVariants({ variant }), className)}
+      {...props}
+    />
+  ),
+);
 CardContent.displayName = "CardContent";
+
+/* ------------------------------------------------------- */
 
 const CardFooter = React.forwardRef<
   HTMLDivElement,

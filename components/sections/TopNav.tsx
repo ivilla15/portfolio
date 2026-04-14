@@ -36,7 +36,7 @@ export function TopNav() {
   return (
     <header className="sticky top-0 z-50 px-3 pt-3 sm:px-4 sm:pt-4">
       <FluidContainer className="max-w-[80rem] px-0">
-        <div className="rounded-full bg-surface-2/90 shadow-medium backdrop-blur-xl">
+        <div className="rounded-full bg-surface-2 shadow-large backdrop-blur-xl ring-1 ring-black/5 dark:ring-white/10">
           <div className="flex min-h-[4rem] items-center justify-between px-4 sm:px-5">
             <Link
               href="/"

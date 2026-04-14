@@ -26,6 +26,11 @@ const buttonVariants = cva(
           "shadow-soft",
           "hover:bg-surface-3 hover:-translate-y-0.5 hover:shadow-medium",
         ].join(" "),
+        muted: [
+          "bg-surface-3 text-primary",
+          "shadow-soft",
+          "hover:bg-surface-4 hover:-translate-y-0.5 hover:shadow-medium",
+        ].join(" "),
         ghost: [
           "bg-transparent text-secondary",
           "hover:bg-surface-2 hover:text-primary",

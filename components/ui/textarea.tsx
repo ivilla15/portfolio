@@ -16,7 +16,7 @@ const Textarea = React.forwardRef<
           "placeholder:text-muted-custom",
           "transition-all duration-200 ease-out",
           "resize-y",
-          "focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-ring/20 focus-visible:shadow-medium",
+          "focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-ring/20 focus-visible:shadow-medium focus-visible:bg-surface-4",
           "disabled:cursor-not-allowed disabled:opacity-50",
         ].join(" "),
         className,

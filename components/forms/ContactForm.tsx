@@ -44,7 +44,7 @@ export default function ContactForm() {
   }
 
   return (
-    <div className="h-full">
+    <div className="flex h-full flex-col bg-surface-2 p-6 sm:p-7 rounded-b-[28px] lg:rounded-bl-none lg:rounded-tr-[28px] lg:p-8">
       <Typography variant="h3" className="text-2xl sm:text-3xl">
         Send a message
       </Typography>
