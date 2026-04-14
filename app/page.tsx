@@ -1,35 +1,29 @@
-import { Navbar } from "@/components/navbar";
-import { HeroSection } from "@/components/hero-section";
-import { AboutSection } from "@/components/about-section";
-import { CurrentlyLearningSection } from "@/components/currently-learning-section";
-import { TechStackSection } from "@/components/tech-stack-section";
-import { FeaturedProjectsSection } from "@/components/featured-projects-section";
-import { CertificationsSection } from "@/components/certifications-section";
-import { ExperienceSection } from "@/components/experience-section";
-import ContactSection from "@/components/contact-section";
-import { BlogSection } from "@/components/blog-section";
-import { OrganizationsSection } from "@/components/organizations-section";
-import { AwardsSection } from "@/components/awards-section";
-import { Footer } from "@/components/footer";
+import {
+  AboutSection,
+  AwardsSection,
+  ContactSection,
+  ExperienceSection,
+  Footer,
+  HeroSection,
+  InvolvementSection,
+  ProjectsSection,
+  TechStackSection,
+  TopNav,
+} from "@/components/sections";
 
-export default function Home() {
+export default function Page() {
   return (
-    <div className="min-h-screen bg-background">
-      <Navbar />
-      <main>
-        <HeroSection />
-        <AboutSection />
-        <ExperienceSection />
-        <FeaturedProjectsSection />
-        <TechStackSection />
-        <CertificationsSection />
-        {/* <BlogSection /> */}
-        <AwardsSection />
-        <OrganizationsSection />
-        <CurrentlyLearningSection />
-        <ContactSection />
-      </main>
+    <main className="page-shell">
+      <TopNav />
+      <HeroSection />
+      <AboutSection />
+      <ExperienceSection />
+      <ProjectsSection />
+      <TechStackSection />
+      <InvolvementSection />
+      <AwardsSection />
+      <ContactSection />
       <Footer />
-    </div>
+    </main>
   );
 }

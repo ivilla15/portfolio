@@ -1,108 +1,116 @@
 "use client";
 
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Label } from "@/components/ui/label";
-import { Button } from "@/components/ui/button";
-import { Send, MessageCircle } from "lucide-react";
+import * as React from "react";
+import { Loader2, Send } from "lucide-react";
+
+import { sendContact } from "@/components/forms/actions/sendContact";
+import { Button, Input, Label, Textarea, Typography } from "@/components/ui";
 import { useToast } from "@/components/ui/use-toast";
-import { sendContact } from "./actions/sendContact";
 
 export default function ContactForm() {
   const { toast } = useToast();
+  const [isSubmitting, setIsSubmitting] = React.useState(false);
 
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    console.log("✅ handleSubmit triggered");
 
     const form = event.currentTarget;
     const formData = new FormData(form);
-    console.log("📤 FormData entries:", Object.fromEntries(formData.entries()));
 
     try {
+      setIsSubmitting(true);
       await sendContact(formData);
-      console.log("✅ sendContact completed without error");
 
       toast({
-        title: "✅ Message Sent",
-        description: "Thanks for reaching out! I’ll get back to you soon.",
+        title: "Message sent",
+        description: "Thanks for reaching out. I’ll get back to you soon.",
       });
 
-      form.reset(); // clear the form
+      form.reset();
     } catch (error) {
-      console.error("❌ Error in handleSubmit:", error);
+      const description =
+        error instanceof Error
+          ? error.message
+          : "Something went wrong. Please try again later.";
+
       toast({
-        title: "❌ Something went wrong",
-        description: "Please try again later or contact me directly.",
+        title: "Unable to send message",
+        description,
         variant: "destructive",
       });
+    } finally {
+      setIsSubmitting(false);
     }
   }
 
   return (
-    <Card className="border-0 rounded-none bg-background/95 backdrop-blur-sm">
-      <CardHeader className="p-12">
-        <div className="flex items-center space-x-3 mb-6">
-          <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl flex items-center justify-center">
-            <MessageCircle className="h-6 w-6 text-white" aria-hidden="true" />
+    <div className="flex h-full flex-col bg-surface-2 p-6 sm:p-7 rounded-b-[28px] lg:rounded-bl-none lg:rounded-tr-[28px] lg:p-8">
+      <Typography variant="h3" className="text-2xl sm:text-3xl">
+        Send a message
+      </Typography>
+
+      <Typography variant="body" className="mt-3 max-w-2xl">
+        Whether you want to talk about a project, an opportunity, or just say
+        hello, feel free to reach out.
+      </Typography>
+
+      <form onSubmit={handleSubmit} className="mt-8 space-y-5" noValidate>
+        <input
+          type="text"
+          name="company"
+          tabIndex={-1}
+          autoComplete="off"
+          className="hidden"
+          aria-hidden="true"
+        />
+
+        <div className="grid gap-5 md:grid-cols-2">
+          <div className="space-y-2">
+            <Label htmlFor="name">Name</Label>
+            <Input id="name" name="name" autoComplete="name" required />
           </div>
-          <CardTitle className="text-2xl">Send me a message</CardTitle>
+
+          <div className="space-y-2">
+            <Label htmlFor="email">Email</Label>
+            <Input
+              id="email"
+              name="email"
+              type="email"
+              autoComplete="email"
+              required
+            />
+          </div>
         </div>
-        <p className="text-muted-foreground text-lg">
-          Got a project in mind? Let&apos;s discuss how we can bring your ideas
-          to life.
-        </p>
-      </CardHeader>
 
-      <CardContent className="px-12 pb-12 space-y-6">
-        <form onSubmit={handleSubmit} className="space-y-6" noValidate>
-          {/* Honeypot anti-spam */}
-          <input
-            type="text"
-            name="company"
-            tabIndex={-1}
-            autoComplete="off"
-            className="hidden"
-            aria-hidden="true"
-          />
+        <div className="space-y-2">
+          <Label htmlFor="subject">Subject</Label>
+          <Input id="subject" name="subject" required />
+        </div>
 
-          <div className="grid md:grid-cols-2 gap-6">
-            <div className="space-y-2">
-              <Label htmlFor="name">Name</Label>
-              <Input id="name" name="name" autoComplete="name" required />
-            </div>
-            <div className="space-y-2">
-              <Label htmlFor="email">Email</Label>
-              <Input
-                id="email"
-                name="email"
-                type="email"
-                autoComplete="email"
-                required
-              />
-            </div>
-          </div>
+        <div className="space-y-2">
+          <Label htmlFor="message">Message</Label>
+          <Textarea id="message" name="message" rows={6} required />
+        </div>
 
-          <div className="space-y-2">
-            <Label htmlFor="subject">Subject</Label>
-            <Input id="subject" name="subject" required />
-          </div>
-
-          <div className="space-y-2">
-            <Label htmlFor="message">Message</Label>
-            <Textarea id="message" name="message" rows={6} required />
-          </div>
-
-          <Button
-            type="submit"
-            className="w-full h-12 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-lg font-medium transform hover:scale-[1.02] transition-all duration-300"
-          >
-            <Send className="mr-2 h-5 w-5" />
-            Send Message
-          </Button>
-        </form>
-      </CardContent>
-    </Card>
+        <Button
+          type="submit"
+          size="lg"
+          className="w-full sm:w-auto"
+          disabled={isSubmitting}
+        >
+          {isSubmitting ? (
+            <>
+              <Loader2 className="h-4 w-4 animate-spin" />
+              Sending...
+            </>
+          ) : (
+            <>
+              <Send className="h-4 w-4" />
+              Send Message
+            </>
+          )}
+        </Button>
+      </form>
+    </div>
   );
 }

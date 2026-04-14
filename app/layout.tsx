@@ -1,27 +1,26 @@
 import type React from "react";
 import type { Metadata } from "next";
-import { Inter, Space_Grotesk, JetBrains_Mono } from "next/font/google";
+import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import { ThemeProvider } from "@/components/theme-provider";
 import { Analytics } from "@vercel/analytics/react";
-import { Toaster } from "@/components/ui/toaster";
-import { SpeedInsights } from "@vercel/speed-insights/next";
 
-const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
-const spaceGrotesk = Space_Grotesk({
+import { ThemeProvider } from "@/components/theme-provider";
+import { Toaster } from "@/components/ui/toaster";
+
+const geistSans = Geist({
   subsets: ["latin"],
-  variable: "--font-heading",
+  variable: "--font-sans",
 });
-const jetbrains = JetBrains_Mono({
+
+const geistMono = Geist_Mono({
   subsets: ["latin"],
   variable: "--font-mono",
 });
 
 export const metadata: Metadata = {
-  title: "Isaiah Villalobos - Full-Stack Developer & Cloud Enthusiast",
+  title: "Isaiah Villalobos",
   description:
-    "Portfolio of Isaiah Villalobos, a passionate full-stack developer specializing in React, TypeScript, and AWS technologies.",
-  generator: "v0.dev",
+    "Computer science student building accessible, full-stack web applications with React, Next.js, and modern backend tools.",
 };
 
 export default function RootLayout({
@@ -33,9 +32,9 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={`${inter.variable} ${spaceGrotesk.variable} ${jetbrains.variable}`}
+      className={`${geistSans.variable} ${geistMono.variable}`}
     >
-      <body className="font-sans">
+      <body className="bg-background font-sans text-foreground antialiased">
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"
@@ -43,7 +42,6 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           {children}
-          <SpeedInsights />
           <Toaster />
           <Analytics />
         </ThemeProvider>
