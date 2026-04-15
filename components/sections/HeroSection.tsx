@@ -6,7 +6,7 @@ import { Button, FluidContainer, Tag, Typography } from "@/components/ui";
 
 export function HeroSection() {
   return (
-    <section className="section-shell pt-24 sm:pt-28 lg:pt-32">
+    <section className="hero-shell">
       <FluidContainer>
         <div className="grid items-center gap-10 lg:grid-cols-[1.15fr_0.85fr] lg:gap-14">
           <div className="order-2 max-w-3xl lg:order-1">
