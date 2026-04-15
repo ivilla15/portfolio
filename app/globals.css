@@ -231,11 +231,17 @@
 
   .section-shell {
     @apply relative;
-    padding-block: clamp(4rem, 8vw, 6rem);
+    padding-block: clamp(3rem, 6vw, 5rem);
   }
 
-  /* Light mode section dividers only */
-  :root .section-shell + .section-shell::before {
+  .hero-shell {
+    padding-block: clamp(2rem, 4vw, 3rem);
+  }
+
+  :root .section-shell + .section-shell::before,
+  :root .hero-shell + .section-shell::before,
+  :root .section-shell + .hero-shell::before,
+  :root .hero-shell + .hero-shell::before {
     content: "";
     position: absolute;
     top: 0;
@@ -251,7 +257,10 @@
     );
   }
 
-  .dark .section-shell + .section-shell::before {
+  .dark .section-shell + .section-shell::before,
+  .dark .hero-shell + .section-shell::before,
+  .dark .section-shell + .hero-shell::before,
+  .dark .hero-shell + .hero-shell::before {
     background: transparent;
   }
 
